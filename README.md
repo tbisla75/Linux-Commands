@@ -1,5 +1,15 @@
 # Linux Commands — Enterprise Engineering & Cluster Provisioning
 
+## Offline use and automatic vendor reviews
+
+- **[Offline overview](OFFLINE-OVERVIEW.md)** — conceptual guide and safety workflow available without ChatGPT.
+- **[Complete local command reference](offline-reference/README.md)** — locally stored command-by-command explanations and syntax from the runbooks.
+- **[Vendor change dashboard](vendor-watch/STATUS.md)** and **[proposed changes](vendor-watch/CHANGES.md)** — show monitored release/command review candidates.
+- **[Weekly update workflow](.github/workflows/offline-and-vendor-watch.yml)** — rebuilds offline docs and checks vendor references each Monday; raises a review-only GitHub PR if workflow permissions permit. It never silently replaces vendor commands.
+
+**For fully offline access, clone this repository or download its ZIP in advance.** ChatGPT explanation links are optional; the local Markdown command reference works without them.
+
+
 Production-oriented Linux command library from **installation and administration → security → advanced incident response → HA clusters → Kubernetes node preparation**, designed for customer-site work and technical assessments.
 
 > 🟢 Read-only checks first. 🟠 Changes require customer approval. 🔴 Never paste cluster tokens, SSH keys, credentials or customer logs into GitHub or ChatGPT. Many commands require packages present only on specific Linux distributions.
