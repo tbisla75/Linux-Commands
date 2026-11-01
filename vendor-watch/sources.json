@@ -1,0 +1,35 @@
+{
+  "notice": "Monitoring only; latest does not mean compatible with current customer version. Vendor checks must be reviewed.",
+  "sources": [
+    {
+      "id": "kernel",
+      "label": "Linux kernel releases page",
+      "kind": "text_marker",
+      "url": "https://www.kernel.org/"
+    },
+    {
+      "id": "ubuntu",
+      "label": "Ubuntu Security Notices",
+      "kind": "text_marker",
+      "url": "https://ubuntu.com/security/notices"
+    },
+    {
+      "id": "redhat",
+      "label": "Red Hat security advisories",
+      "kind": "text_marker",
+      "url": "https://access.redhat.com/security/security-updates/"
+    },
+    {
+      "id": "slurm",
+      "label": "Slurm scheduler release tags",
+      "kind": "github_release",
+      "url": "https://api.github.com/repos/SchedMD/slurm/releases/latest"
+    },
+    {
+      "id": "htcondor",
+      "label": "HTCondor workload scheduler release tags",
+      "kind": "github_release",
+      "url": "https://api.github.com/repos/htcondor/htcondor/releases/latest"
+    }
+  ]
+}
