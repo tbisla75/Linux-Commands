@@ -5,7 +5,7 @@
 Supports **Ubuntu/Debian/RHEL-family** hosts prepared for **kubeadm**, with explicit opt-in. Has `--role control-plane` or `--role worker`, and `--dry-run` as default. It configures OS prerequisites and optional package installation, but does **not** create a control plane, join a cluster, install CNI/CSI or provision cloud network infrastructure.
 
 ```bash
-sudo bash scripts/prepare-kubernetes-node.sh --distro auto --role control-plane --k8s-minor v1.37 --dry-run
+sudo bash scripts/prepare-kubernetes-node.sh --role control-plane --k8s-minor v1.37 --dry-run
 sudo bash scripts/prepare-kubernetes-node.sh --distro auto --role worker --k8s-minor v1.37 --apply
 ```
 
