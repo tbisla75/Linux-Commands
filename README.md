@@ -4,6 +4,8 @@ Production-oriented Linux command library from **installation and administration
 
 > 🟢 Read-only checks first. 🟠 Changes require customer approval. 🔴 Never paste cluster tokens, SSH keys, credentials or customer logs into GitHub or ChatGPT. Many commands require packages present only on specific Linux distributions.
 
+**🚨 During a Linux incident:** start with [First 60 Seconds: Linux Logs](10-FAST-LOG-TROUBLESHOOTING.md). For approved local account recovery use [Forgotten Password Recovery](09-FORGOTTEN-PASSWORD-RECOVERY.md).
+
 ## Command library
 
 | Runbook | What it covers |
@@ -15,6 +17,8 @@ Production-oriented Linux command library from **installation and administration
 | [05 — Kubernetes Node Preparation](05-PLATFORM-NODE-PREPARATION.md) | Ubuntu/Debian/RHEL node prep for kubeadm |
 | [06 — Enterprise HA Cluster Design](06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md) | Planning active/passive, STONITH, validation and failover |
 | [07 — Script Syntax Explanations](07-SCRIPT-SYNTAX-CHATGPT.md) | 🧠 Individual ChatGPT links for provisioning script statements |
+| 🚨 [10 — First 60 Seconds: Linux Logs and Diagnostics](10-FAST-LOG-TROUBLESHOOTING.md) | Failed services, journal errors, SSH/PAM, network, disk, I/O, Kubernetes and K3s logs |
+| 🔐 [09 — Authorized Forgotten Password Recovery](09-FORGOTTEN-PASSWORD-RECOVERY.md) | Ubuntu/Debian recovery, RHEL rescue, cloud accounts, SELinux relabel |
 | [08 — AWS, Azure, GCP & Bare-Metal Deployments](08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md) | Step-by-step host/cluster integration and cloud CLI diagnostics |
 
 ## Ready-to-adapt scripts
