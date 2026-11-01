@@ -15,6 +15,7 @@ Production-oriented Linux command library from **installation and administration
 | [05 — Kubernetes Node Preparation](05-PLATFORM-NODE-PREPARATION.md) | Ubuntu/Debian/RHEL node prep for kubeadm |
 | [06 — Enterprise HA Cluster Design](06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md) | Planning active/passive, STONITH, validation and failover |
 | [07 — Script Syntax Explanations](07-SCRIPT-SYNTAX-CHATGPT.md) | 🧠 Individual ChatGPT links for provisioning script statements |
+| [08 — AWS, Azure, GCP & Bare-Metal Deployments](08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md) | Step-by-step host/cluster integration and cloud CLI diagnostics |
 
 ## Ready-to-adapt scripts
 
