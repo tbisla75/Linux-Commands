@@ -1,1012 +1,1162 @@
-# Offline explanations: 11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md
+# Offline command / configuration reference: `11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md`
 
-Source: [11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md](../11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md). This is a **local, internet-independent** explanation of every terminal example in the runbook, with syntax, prerequisites and operational risk. Validate against actual installed releases.
+Generated from repository source by `tools/build_offline_reference.py`. **63 items**. This copy works offline. No commands were executed.
 
-## 1. hostnamectl
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md`](../11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md)
+
+### 1. `hostnamectl`
+
+**Source line:** 70  |  **Tool/purpose:** hostnamectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 hostnamectl
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `hostnamectl` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** hostnamectl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `hostnamectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 2. `lscpu`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 71  |  **Tool/purpose:** lscpu operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 2. lscpu
+**Exact command:**
 
 ```bash
 lscpu
 ```
 
-**What it does:** CPU architecture/NUMA topology.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `lscpu` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** lscpu. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `lscpu operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 3. `numactl --hardware`
 
-**Expected output:** CPU architecture/NUMA topology. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 72  |  **Tool/purpose:** numactl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 3. numactl --hardware
+**Exact command:**
 
 ```bash
 numactl --hardware
 ```
 
-**What it does:** Display or set process NUMA/memory bindings.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `numactl` is the executable; the remaining words are targets/subcommands and options. Options: `--hardware` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** numactl --hardware. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--hardware` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `numactl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 4. `free -h`
 
-**Expected output:** Display or set process NUMA/memory bindings. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 73  |  **Tool/purpose:** free operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 4. free -h
+**Exact command:**
 
 ```bash
 free -h
 ```
 
-**What it does:** Read physical memory and swap statistics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `free` is the executable; the remaining words are targets/subcommands and options. Options: `-h` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** free -h. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-h` — Human-readable units for storage tools; help in other commands.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `free operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 5. `lsblk -o NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS`
 
-**Expected output:** Read physical memory and swap statistics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 74  |  **Tool/purpose:** lsblk operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 5. lsblk -o NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS
+**Exact command:**
 
 ```bash
 lsblk -o NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `lsblk` is the executable; the remaining words are targets/subcommands and options. Options: `-o` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** lsblk -o NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `lsblk operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 6. `ip -br link`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 75  |  **Tool/purpose:** Linux network configuration  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 6. ip -br link
+**Exact command:**
 
 ```bash
 ip -br link
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Read or change Linux addresses, links, routes and neighbor information.
 
-**Complete command form:** `ip` is the executable; the remaining words are targets/subcommands and options. Options: `-br` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** ip -br link. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-br` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or change Linux addresses, links, routes and neighbor information. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Linux network configuration` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ip.8.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 7. `lspci \| grep -Ei 'Mellanox\|NVIDIA\|AMD\|network\|infiniband'`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 76  |  **Tool/purpose:** lspci operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 7. lspci | grep -Ei 'Mellanox|NVIDIA|AMD|network|infiniband'
+**Exact command:**
 
 ```bash
 lspci | grep -Ei 'Mellanox|NVIDIA|AMD|network|infiniband'
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `lspci` is the executable; the remaining words are targets/subcommands and options. Options: `-Ei` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** lspci | grep -Ei Mellanox|NVIDIA|AMD|network|infiniband. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-Ei` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `lspci operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 8. `uptime`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 77  |  **Tool/purpose:** uptime operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 8. uptime
+**Exact command:**
 
 ```bash
 uptime
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `uptime` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** uptime. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `uptime operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 9. `sinfo -Nel`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 99  |  **Tool/purpose:** Slurm partition/node information  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 9. sinfo -Nel
+**Exact command:**
 
 ```bash
 sinfo -Nel
 ```
 
-**What it does:** Show Slurm compute partitions/nodes.
+**What it does:** Display scheduler partition and compute node status.
 
-**Complete command form:** `sinfo` is the executable; the remaining words are targets/subcommands and options. Options: `-Nel` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sinfo -Nel. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-Nel` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display scheduler partition and compute node status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm partition/node information` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/sinfo.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 10. `squeue -o '%.18i %.9P %.22j %.8u %.2t %.10M %.6D %R'`
 
-**Expected output:** Show Slurm compute partitions/nodes. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 100  |  **Tool/purpose:** Slurm queue status  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 10. squeue -o '%.18i %.9P %.22j %.8u %.2t %.10M %.6D %R'
+**Exact command:**
 
 ```bash
 squeue -o '%.18i %.9P %.22j %.8u %.2t %.10M %.6D %R'
 ```
 
-**What it does:** List Slurm pending/running jobs.
+**What it does:** Show queued/running jobs and placement reasons.
 
-**Complete command form:** `squeue` is the executable; the remaining words are targets/subcommands and options. Options: `-o` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** squeue -o %.18i %.9P %.22j %.8u %.2t %.10M %.6D %R. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Show queued/running jobs and placement reasons. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm queue status` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/squeue.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 11. `scontrol ping`
 
-**Expected output:** List Slurm pending/running jobs. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 101  |  **Tool/purpose:** Slurm control inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 11. scontrol ping
+**Exact command:**
 
 ```bash
 scontrol ping
 ```
 
-**What it does:** Slurm scheduler node/job/partition status or change.
+**What it does:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand.
 
-**Complete command form:** `scontrol` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** scontrol ping. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm control inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/scontrol.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 12. `scontrol show partition`
 
-**Expected output:** Slurm scheduler node/job/partition status or change. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 102  |  **Tool/purpose:** Slurm control inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 12. scontrol show partition
+**Exact command:**
 
 ```bash
 scontrol show partition
 ```
 
-**What it does:** Slurm scheduler node/job/partition status or change.
+**What it does:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand.
 
-**Complete command form:** `scontrol` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** scontrol show partition. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm control inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/scontrol.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 13. `scontrol show nodes`
 
-**Expected output:** Slurm scheduler node/job/partition status or change. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 103  |  **Tool/purpose:** Slurm control inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 13. scontrol show nodes
+**Exact command:**
 
 ```bash
 scontrol show nodes
 ```
 
-**What it does:** Slurm scheduler node/job/partition status or change.
+**What it does:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand.
 
-**Complete command form:** `scontrol` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** scontrol show nodes. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm control inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/scontrol.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 14. `sdiag`
 
-**Expected output:** Slurm scheduler node/job/partition status or change. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 104  |  **Tool/purpose:** sdiag operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 14. sdiag
+**Exact command:**
 
 ```bash
 sdiag
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `sdiag` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sdiag. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sdiag operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 15. `sacct -S today --format=JobID,JobName,State,Elapsed,AllocCPUS,MaxRSS -n`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 105  |  **Tool/purpose:** Slurm accounting inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 15. sacct -S today --format=JobID,JobName,State,Elapsed,AllocCPUS,MaxRSS -n
+**Exact command:**
 
 ```bash
 sacct -S today --format=JobID,JobName,State,Elapsed,AllocCPUS,MaxRSS -n
 ```
 
-**What it does:** Slurm accounting and job history.
+**What it does:** List historical job resources, states and timing.
 
-**Complete command form:** `sacct` is the executable; the remaining words are targets/subcommands and options. Options: `-S` (confirm tool-specific help); `--format=JobID,JobName,State,Elapsed,AllocCPUS,MaxRSS` (confirm tool-specific help); `-n` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sacct -S today --format=JobID,JobName,State,Elapsed,AllocCPUS,MaxRSS -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-S` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--format=JobID,JobName,State,Elapsed,AllocCPUS,MaxRSS` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List historical job resources, states and timing. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm accounting inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/sacct.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 16. `condor_version`
 
-**Expected output:** Slurm accounting and job history. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 126  |  **Tool/purpose:** condor_version operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 16. condor_version
+**Exact command:**
 
 ```bash
 condor_version
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `condor_version` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_version. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `condor_version operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 17. `condor_status -total`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 127  |  **Tool/purpose:** HTCondor worker status  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 17. condor_status -total
+**Exact command:**
 
 ```bash
 condor_status -total
 ```
 
-**What it does:** Display HTCondor pool resource advertisements.
+**What it does:** Display resource pool advertisements and availability.
 
-**Complete command form:** `condor_status` is the executable; the remaining words are targets/subcommands and options. Options: `-total` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_status -total. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-total` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display resource pool advertisements and availability. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor worker status` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 18. `condor_status -schedd`
 
-**Expected output:** Display HTCondor pool resource advertisements. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 128  |  **Tool/purpose:** HTCondor worker status  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 18. condor_status -schedd
+**Exact command:**
 
 ```bash
 condor_status -schedd
 ```
 
-**What it does:** Display HTCondor pool resource advertisements.
+**What it does:** Display resource pool advertisements and availability.
 
-**Complete command form:** `condor_status` is the executable; the remaining words are targets/subcommands and options. Options: `-schedd` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_status -schedd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-schedd` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display resource pool advertisements and availability. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor worker status` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 19. `condor_q`
 
-**Expected output:** Display HTCondor pool resource advertisements. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 129  |  **Tool/purpose:** HTCondor job queue  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 19. condor_q
+**Exact command:**
 
 ```bash
 condor_q
 ```
 
-**What it does:** Display HTCondor jobs and hold reasons.
+**What it does:** Inspect current queued, running or held jobs.
 
-**Complete command form:** `condor_q` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_q. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect current queued, running or held jobs. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job queue` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 20. `condor_q -better-analyze JOB_ID`
 
-**Expected output:** Display HTCondor jobs and hold reasons. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 130  |  **Tool/purpose:** HTCondor job queue  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 20. condor_q -better-analyze JOB_ID
+**Exact command:**
 
 ```bash
 condor_q -better-analyze JOB_ID
 ```
 
-**What it does:** Display HTCondor jobs and hold reasons.
+**What it does:** Inspect current queued, running or held jobs.
 
-**Complete command form:** `condor_q` is the executable; the remaining words are targets/subcommands and options. Options: `-better-analyze` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_q -better-analyze JOB_ID. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-better-analyze` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `JOB_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect current queued, running or held jobs. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job queue` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** JOB_ID. Replace only with authorized target values.
+### 21. `condor_history -limit 20`
 
-**Expected output:** Display HTCondor jobs and hold reasons. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 131  |  **Tool/purpose:** condor_history operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 21. condor_history -limit 20
+**Exact command:**
 
 ```bash
 condor_history -limit 20
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `condor_history` is the executable; the remaining words are targets/subcommands and options. Options: `-limit` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_history -limit 20. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-limit` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `condor_history operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 22. `condor_status -af Name State Activity`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 132  |  **Tool/purpose:** HTCondor worker status  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 22. condor_status -af Name State Activity
+**Exact command:**
 
 ```bash
 condor_status -af Name State Activity
 ```
 
-**What it does:** Display HTCondor pool resource advertisements.
+**What it does:** Display resource pool advertisements and availability.
 
-**Complete command form:** `condor_status` is the executable; the remaining words are targets/subcommands and options. Options: `-af` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_status -af Name State Activity. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-af` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display resource pool advertisements and availability. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor worker status` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 23. `mpirun --version`
 
-**Expected output:** Display HTCondor pool resource advertisements. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 153  |  **Tool/purpose:** mpirun operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 23. mpirun --version
+**Exact command:**
 
 ```bash
 mpirun --version
 ```
 
-**What it does:** Launch parallel MPI ranks.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mpirun` is the executable; the remaining words are targets/subcommands and options. Options: `--version` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mpirun --version. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--version` — Display tool version.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mpirun operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 24. `mpicc --version`
 
-**Expected output:** Launch parallel MPI ranks. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 154  |  **Tool/purpose:** mpicc operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 24. mpicc --version
+**Exact command:**
 
 ```bash
 mpicc --version
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mpicc` is the executable; the remaining words are targets/subcommands and options. Options: `--version` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mpicc --version. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--version` — Display tool version.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mpicc operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 25. `module avail`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 155  |  **Tool/purpose:** module operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 25. module avail
+**Exact command:**
 
 ```bash
 module avail
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `module` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** module avail. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `module operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 26. `module list`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 156  |  **Tool/purpose:** module operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 26. module list
+**Exact command:**
 
 ```bash
 module list
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `module` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** module list. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `module operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 27. `ulimit -a`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 157  |  **Tool/purpose:** ulimit operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 27. ulimit -a
+**Exact command:**
 
 ```bash
 ulimit -a
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `ulimit` is the executable; the remaining words are targets/subcommands and options. Options: `-a` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** ulimit -a. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-a` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ulimit operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 28. `numactl --show`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 158  |  **Tool/purpose:** numactl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 28. numactl --show
+**Exact command:**
 
 ```bash
 numactl --show
 ```
 
-**What it does:** Display or set process NUMA/memory bindings.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `numactl` is the executable; the remaining words are targets/subcommands and options. Options: `--show` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** numactl --show. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--show` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `numactl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 29. `taskset -pc YOUR_PID`
 
-**Expected output:** Display or set process NUMA/memory bindings. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 159  |  **Tool/purpose:** taskset operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 29. taskset -pc YOUR_PID
+**Exact command:**
 
 ```bash
 taskset -pc YOUR_PID
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `taskset` is the executable; the remaining words are targets/subcommands and options. Options: `-pc` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** taskset -pc YOUR_PID. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-pc` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_PID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `taskset operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_PID. Replace only with authorized target values.
+### 30. `mpirun --help \| head -40`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 160  |  **Tool/purpose:** mpirun operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 30. mpirun --help | head -40
+**Exact command:**
 
 ```bash
 mpirun --help | head -40
 ```
 
-**What it does:** Launch parallel MPI ranks.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mpirun` is the executable; the remaining words are targets/subcommands and options. Options: `--help` (confirm tool-specific help); `-40` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mpirun --help | head -40. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--help` — Display supported syntax and options for this installed tool version.
+**Option:** `-40` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mpirun operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 31. `nvidia-smi -L`
 
-**Expected output:** Launch parallel MPI ranks. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 182  |  **Tool/purpose:** NVIDIA GPU diagnostics  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 31. nvidia-smi -L
+**Exact command:**
 
 ```bash
 nvidia-smi -L
 ```
 
-**What it does:** NVIDIA GPU inventory, load, memory and fault counters.
+**What it does:** Inspect GPU inventory, utilization, memory, temperatures and errors.
 
-**Complete command form:** `nvidia-smi` is the executable; the remaining words are targets/subcommands and options. Options: `-L` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** nvidia-smi -L. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-L` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect GPU inventory, utilization, memory, temperatures and errors. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NVIDIA GPU diagnostics` vendor manual or installed `--help`; [online vendor reference](https://docs.nvidia.com/deploy/nvidia-smi/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 32. `nvidia-smi --query-gpu=index,name,uuid,memory.total,utilization.gpu,temperature.gpu --format=csv`
 
-**Expected output:** NVIDIA GPU inventory, load, memory and fault counters. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 183  |  **Tool/purpose:** NVIDIA GPU diagnostics  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 32. nvidia-smi --query-gpu=index,name,uuid,memory.total,utilization.gpu,temperature.gpu --format=csv
+**Exact command:**
 
 ```bash
 nvidia-smi --query-gpu=index,name,uuid,memory.total,utilization.gpu,temperature.gpu --format=csv
 ```
 
-**What it does:** NVIDIA GPU inventory, load, memory and fault counters.
+**What it does:** Inspect GPU inventory, utilization, memory, temperatures and errors.
 
-**Complete command form:** `nvidia-smi` is the executable; the remaining words are targets/subcommands and options. Options: `--query-gpu=index,name,uuid,memory.total,utilization.gpu,temperature.gpu` (confirm tool-specific help); `--format=csv` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** nvidia-smi --query-gpu=index,name,uuid,memory.total,utilization.gpu,temperature.gpu --format=csv. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--query-gpu=index,name,uuid,memory.total,utilization.gpu,temperature.gpu` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--format=csv` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect GPU inventory, utilization, memory, temperatures and errors. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NVIDIA GPU diagnostics` vendor manual or installed `--help`; [online vendor reference](https://docs.nvidia.com/deploy/nvidia-smi/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 33. `ibstat`
 
-**Expected output:** NVIDIA GPU inventory, load, memory and fault counters. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 184  |  **Tool/purpose:** InfiniBand link inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 33. ibstat
+**Exact command:**
 
 ```bash
 ibstat
 ```
 
-**What it does:** InfiniBand link inventory/status.
+**What it does:** Display InfiniBand adapter, port state, link speed and identifiers.
 
-**Complete command form:** `ibstat` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** ibstat. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display InfiniBand adapter, port state, link speed and identifiers. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `InfiniBand link inspection` vendor manual or installed `--help`; [online vendor reference](https://github.com/linux-rdma/rdma-core).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 34. `ibv_devices`
 
-**Expected output:** InfiniBand link inventory/status. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 185  |  **Tool/purpose:** ibv_devices operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 34. ibv_devices
+**Exact command:**
 
 ```bash
 ibv_devices
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `ibv_devices` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** ibv_devices. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ibv_devices operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 35. `ibv_devinfo`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 186  |  **Tool/purpose:** ibv_devinfo operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 35. ibv_devinfo
+**Exact command:**
 
 ```bash
 ibv_devinfo
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `ibv_devinfo` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** ibv_devinfo. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ibv_devinfo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 36. `rdma link show`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 187  |  **Tool/purpose:** rdma operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 36. rdma link show
+**Exact command:**
 
 ```bash
 rdma link show
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `rdma` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** rdma link show. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `rdma operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 37. `ethtool -S YOUR_INTERFACE \| head -70`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 188  |  **Tool/purpose:** ethtool operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 37. ethtool -S YOUR_INTERFACE | head -70
+**Exact command:**
 
 ```bash
 ethtool -S YOUR_INTERFACE | head -70
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `ethtool` is the executable; the remaining words are targets/subcommands and options. Options: `-S` (confirm tool-specific help); `-70` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** ethtool -S YOUR_INTERFACE | head. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-S` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-70` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_INTERFACE`. Never assume an example target is the current cluster.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ethtool operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_INTERFACE. Replace only with authorized target values.
+### 38. `journalctl -k -b --since '1 hour ago' \| grep -Ei 'mlx5\|infiniband\|rdma\|nvlink\|xid\|aer\|pcie\|timeout' \| tail -100`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 189  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 38. journalctl -k -b --since '1 hour ago' | grep -Ei 'mlx5|infiniband|rdma|nvlink|xid|aer|pcie|timeout' | tai
+**Exact command:**
 
 ```bash
 journalctl -k -b --since '1 hour ago' | grep -Ei 'mlx5|infiniband|rdma|nvlink|xid|aer|pcie|timeout' | tail -100
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Query system and service journal messages with boot, unit, time and priority filters.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-k` (confirm tool-specific help); `-b` (confirm tool-specific help); `--since` (confirm tool-specific help); `-Ei` (confirm tool-specific help); `-100` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** journalctl -k -b --since 1 hour ago. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-k` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `--since` — Select entries newer than a given time or duration.
+**Option:** `-Ei` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-100` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query system and service journal messages with boot, unit, time and priority filters. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 39. `findmnt -T /scratch`
 
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 211  |  **Tool/purpose:** findmnt operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 39. findmnt -T /scratch
+**Exact command:**
 
 ```bash
 findmnt -T /scratch
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `findmnt` is the executable; the remaining words are targets/subcommands and options. Options: `-T` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** findmnt -T /scratch. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-T` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `findmnt operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 40. `df -hT`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 212  |  **Tool/purpose:** Filesystem capacity  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 40. df -hT
+**Exact command:**
 
 ```bash
 df -hT
 ```
 
-**What it does:** Report available disk blocks/inodes.
+**What it does:** Display filesystem usage; bytes with -h or inodes with -i.
 
-**Complete command form:** `df` is the executable; the remaining words are targets/subcommands and options. Options: `-hT` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** df -hT. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-hT` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display filesystem usage; bytes with -h or inodes with -i. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Filesystem capacity` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/df.1.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 41. `df -i`
 
-**Expected output:** Report available disk blocks/inodes. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 213  |  **Tool/purpose:** Filesystem capacity  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 41. df -i
+**Exact command:**
 
 ```bash
 df -i
 ```
 
-**What it does:** Report available disk blocks/inodes.
+**What it does:** Display filesystem usage; bytes with -h or inodes with -i.
 
-**Complete command form:** `df` is the executable; the remaining words are targets/subcommands and options. Options: `-i` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** df -i. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-i` — Inode usage in df, interactive or interface depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display filesystem usage; bytes with -h or inodes with -i. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Filesystem capacity` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/df.1.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 42. `iostat -xz 1 5`
 
-**Expected output:** Report available disk blocks/inodes. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 214  |  **Tool/purpose:** iostat operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 42. iostat -xz 1 5
+**Exact command:**
 
 ```bash
 iostat -xz 1 5
 ```
 
-**What it does:** Disk utilization, queue depth and latency report.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `iostat` is the executable; the remaining words are targets/subcommands and options. Options: `-xz` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** iostat -xz 1 5. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-xz` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `iostat operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 43. `mount \| grep -Ei 'lustre\|beegfs\|nfs\|ceph\|gpfs\|cvmfs'`
 
-**Expected output:** Disk utilization, queue depth and latency report. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 215  |  **Tool/purpose:** mount operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 43. mount | grep -Ei 'lustre|beegfs|nfs|ceph|gpfs|cvmfs'
+**Exact command:**
 
 ```bash
 mount | grep -Ei 'lustre|beegfs|nfs|ceph|gpfs|cvmfs'
 ```
 
-**What it does:** Show or alter filesystem mounts.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mount` is the executable; the remaining words are targets/subcommands and options. Options: `-Ei` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mount | grep -Ei lustre|beegfs|nfs|ceph|gpfs|cvmfs. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-Ei` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mount operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 44. `journalctl -k -b --since '1 hour ago' \| grep -Ei 'I/O error\|nfs\|lustre\|beegfs\|cvmfs\|ceph\|timeout\|reset' \| tail -100`
 
-**Expected output:** Show or alter filesystem mounts. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 216  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 44. journalctl -k -b --since '1 hour ago' | grep -Ei 'I/O error|nfs|lustre|beegfs|cvmfs|ceph|timeout|reset' |
+**Exact command:**
 
 ```bash
 journalctl -k -b --since '1 hour ago' | grep -Ei 'I/O error|nfs|lustre|beegfs|cvmfs|ceph|timeout|reset' | tail -100
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Query system and service journal messages with boot, unit, time and priority filters.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-k` (confirm tool-specific help); `-b` (confirm tool-specific help); `--since` (confirm tool-specific help); `-Ei` (confirm tool-specific help); `-100` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** journalctl -k -b --since 1 hour ago. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-k` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `--since` — Select entries newer than a given time or duration.
+**Option:** `-Ei` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-100` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Query system and service journal messages with boot, unit, time and priority filters. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 45. `sbatch hello-slurm.sbatch`
 
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 248  |  **Tool/purpose:** Slurm job submission  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 45. sbatch hello-slurm.sbatch
+**Exact command:**
 
 ```bash
 sbatch hello-slurm.sbatch
 ```
 
-**What it does:** Submit a scheduled Slurm batch workload.
+**What it does:** Submit a batch job, consuming compute allocation subject to scheduler policy.
 
-**Complete command form:** `sbatch` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sbatch hello-slurm.sbatch. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Submit a batch job, consuming compute allocation subject to scheduler policy. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm job submission` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/sbatch.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 46. `mkdir -p logs`
 
-**Expected output:** Submit a scheduled Slurm batch workload. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 281  |  **Tool/purpose:** mkdir operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 46. mkdir -p logs
+**Exact command:**
 
 ```bash
 mkdir -p logs
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mkdir` is the executable; the remaining words are targets/subcommands and options. Options: `-p` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mkdir -p logs. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-p` — Priority filter in journalctl; other meanings in other CLIs.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mkdir operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 47. `condor_submit hello.sub`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 282  |  **Tool/purpose:** HTCondor job submission  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 47. condor_submit hello.sub
+**Exact command:**
 
 ```bash
 condor_submit hello.sub
 ```
 
-**What it does:** Submit batch job to HTCondor queue.
+**What it does:** Queue workload through HTCondor; consumes scheduled resources.
 
-**Complete command form:** `condor_submit` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_submit hello.sub. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Queue workload through HTCondor; consumes scheduled resources. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job submission` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 48. `condor_q`
 
-**Expected output:** Submit batch job to HTCondor queue. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 283  |  **Tool/purpose:** HTCondor job queue  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 48. condor_q
+**Exact command:**
 
 ```bash
 condor_q
 ```
 
-**What it does:** Display HTCondor jobs and hold reasons.
+**What it does:** Inspect current queued, running or held jobs.
 
-**Complete command form:** `condor_q` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_q. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect current queued, running or held jobs. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job queue` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 49. `condor_history -limit 10`
 
-**Expected output:** Display HTCondor jobs and hold reasons. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 284  |  **Tool/purpose:** condor_history operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 49. condor_history -limit 10
+**Exact command:**
 
 ```bash
 condor_history -limit 10
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `condor_history` is the executable; the remaining words are targets/subcommands and options. Options: `-limit` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_history -limit 10. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-limit` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `condor_history operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 50. `srun --nodes=1 --ntasks=2 --time=00:02:00 hostname`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 301  |  **Tool/purpose:** Slurm parallel task launch  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 50. srun --nodes=1 --ntasks=2 --time=00:02:00 hostname
+**Exact command:**
 
 ```bash
 srun --nodes=1 --ntasks=2 --time=00:02:00 hostname
 ```
 
-**What it does:** Launch tasks on an allocated Slurm resource.
+**What it does:** Start tasks in an authorized scheduler allocation.
 
-**Complete command form:** `srun` is the executable; the remaining words are targets/subcommands and options. Options: `--nodes=1` (confirm tool-specific help); `--ntasks=2` (confirm tool-specific help); `--time=00:02:00` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** srun --nodes=1 --ntasks=2 --time=00:02:00 hostname. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--nodes=1` — Specify allocated Slurm nodes for a job.
+**Option:** `--ntasks=2` — Specify number of scheduler tasks.
+**Option:** `--time=00:02:00` — Specify time limit for a scheduled workload.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Start tasks in an authorized scheduler allocation. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm parallel task launch` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/srun.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 51. `sinfo -R`
 
-**Expected output:** Launch tasks on an allocated Slurm resource. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 328  |  **Tool/purpose:** Slurm partition/node information  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 51. sinfo -R
+**Exact command:**
 
 ```bash
 sinfo -R
 ```
 
-**What it does:** Show Slurm compute partitions/nodes.
+**What it does:** Display scheduler partition and compute node status.
 
-**Complete command form:** `sinfo` is the executable; the remaining words are targets/subcommands and options. Options: `-R` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sinfo -R. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-R` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display scheduler partition and compute node status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm partition/node information` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/sinfo.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 52. `scontrol show job JOB_ID`
 
-**Expected output:** Show Slurm compute partitions/nodes. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 329  |  **Tool/purpose:** Slurm control inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 52. scontrol show job JOB_ID
+**Exact command:**
 
 ```bash
 scontrol show job JOB_ID
 ```
 
-**What it does:** Slurm scheduler node/job/partition status or change.
+**What it does:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand.
 
-**Complete command form:** `scontrol` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** scontrol show job JOB_ID. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `JOB_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm control inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/scontrol.html).
 
-**Environment and variables:** JOB_ID. Replace only with authorized target values.
+### 53. `scontrol show node NODE_NAME`
 
-**Expected output:** Slurm scheduler node/job/partition status or change. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 330  |  **Tool/purpose:** Slurm control inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 53. scontrol show node NODE_NAME
+**Exact command:**
 
 ```bash
 scontrol show node NODE_NAME
 ```
 
-**What it does:** Slurm scheduler node/job/partition status or change.
+**What it does:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand.
 
-**Complete command form:** `scontrol` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** scontrol show node NODE_NAME. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `NODE_NAME`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or administer scheduler nodes, partitions and jobs; read/write depends on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm control inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/scontrol.html).
 
-**Environment and variables:** NODE_NAME. Replace only with authorized target values.
+### 54. `sacct -j JOB_ID --format=JobID,JobName,State,ExitCode,Elapsed,MaxRSS`
 
-**Expected output:** Slurm scheduler node/job/partition status or change. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 331  |  **Tool/purpose:** Slurm accounting inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 54. sacct -j JOB_ID --format=JobID,JobName,State,ExitCode,Elapsed,MaxRSS
+**Exact command:**
 
 ```bash
 sacct -j JOB_ID --format=JobID,JobName,State,ExitCode,Elapsed,MaxRSS
 ```
 
-**What it does:** Slurm accounting and job history.
+**What it does:** List historical job resources, states and timing.
 
-**Complete command form:** `sacct` is the executable; the remaining words are targets/subcommands and options. Options: `-j` (confirm tool-specific help); `--format=JobID,JobName,State,ExitCode,Elapsed,MaxRSS` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sacct -j JOB_ID --format=JobID,JobName,State,ExitCode,Elapsed,MaxRSS. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-j` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--format=JobID,JobName,State,ExitCode,Elapsed,MaxRSS` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `JOB_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List historical job resources, states and timing. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Slurm accounting inspection` vendor manual or installed `--help`; [online vendor reference](https://slurm.schedmd.com/sacct.html).
 
-**Environment and variables:** JOB_ID. Replace only with authorized target values.
+### 55. `sstat -j JOB_ID --format=AveCPU,AveRSS,MaxRSS`
 
-**Expected output:** Slurm accounting and job history. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 332  |  **Tool/purpose:** sstat operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 55. sstat -j JOB_ID --format=AveCPU,AveRSS,MaxRSS
+**Exact command:**
 
 ```bash
 sstat -j JOB_ID --format=AveCPU,AveRSS,MaxRSS
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `sstat` is the executable; the remaining words are targets/subcommands and options. Options: `-j` (confirm tool-specific help); `--format=AveCPU,AveRSS,MaxRSS` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sstat -j JOB_ID --format=AveCPU,AveRSS,MaxRSS. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-j` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--format=AveCPU,AveRSS,MaxRSS` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `JOB_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sstat operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** JOB_ID. Replace only with authorized target values.
+### 56. `journalctl -u slurmd -b --no-pager -n 120`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 333  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 56. journalctl -u slurmd -b --no-pager -n 120
+**Exact command:**
 
 ```bash
 journalctl -u slurmd -b --no-pager -n 120
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Filter systemd logs for the specified unit.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-u` (confirm tool-specific help); `-b` (confirm tool-specific help); `--no-pager` (confirm tool-specific help); `-n` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** journalctl -u slurmd -b --no-pager. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 57. `journalctl -u slurmctld -b --no-pager -n 120`
 
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 334  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 57. journalctl -u slurmctld -b --no-pager -n 120
+**Exact command:**
 
 ```bash
 journalctl -u slurmctld -b --no-pager -n 120
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Filter systemd logs for the specified unit.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-u` (confirm tool-specific help); `-b` (confirm tool-specific help); `--no-pager` (confirm tool-specific help); `-n` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** journalctl -u slurmctld -b --no-pager. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 58. `condor_q -hold`
 
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 355  |  **Tool/purpose:** HTCondor job queue  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 58. condor_q -hold
+**Exact command:**
 
 ```bash
 condor_q -hold
 ```
 
-**What it does:** Display HTCondor jobs and hold reasons.
+**What it does:** Inspect current queued, running or held jobs.
 
-**Complete command form:** `condor_q` is the executable; the remaining words are targets/subcommands and options. Options: `-hold` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_q -hold. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-hold` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect current queued, running or held jobs. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job queue` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 59. `condor_q -better-analyze JOB_ID`
 
-**Expected output:** Display HTCondor jobs and hold reasons. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 356  |  **Tool/purpose:** HTCondor job queue  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 59. condor_q -better-analyze JOB_ID
+**Exact command:**
 
 ```bash
 condor_q -better-analyze JOB_ID
 ```
 
-**What it does:** Display HTCondor jobs and hold reasons.
+**What it does:** Inspect current queued, running or held jobs.
 
-**Complete command form:** `condor_q` is the executable; the remaining words are targets/subcommands and options. Options: `-better-analyze` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_q -better-analyze JOB_ID. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-better-analyze` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `JOB_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect current queued, running or held jobs. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job queue` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** JOB_ID. Replace only with authorized target values.
+### 60. `condor_q -long JOB_ID \| head -80`
 
-**Expected output:** Display HTCondor jobs and hold reasons. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 357  |  **Tool/purpose:** HTCondor job queue  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 60. condor_q -long JOB_ID | head -80
+**Exact command:**
 
 ```bash
 condor_q -long JOB_ID | head -80
 ```
 
-**What it does:** Display HTCondor jobs and hold reasons.
+**What it does:** Inspect current queued, running or held jobs.
 
-**Complete command form:** `condor_q` is the executable; the remaining words are targets/subcommands and options. Options: `-long` (confirm tool-specific help); `-80` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_q -long JOB_ID | head. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-long` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-80` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `JOB_ID`. Never assume an example target is the current cluster.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect current queued, running or held jobs. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor job queue` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** JOB_ID. Replace only with authorized target values.
+### 61. `condor_status -total`
 
-**Expected output:** Display HTCondor jobs and hold reasons. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 358  |  **Tool/purpose:** HTCondor worker status  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 61. condor_status -total
+**Exact command:**
 
 ```bash
 condor_status -total
 ```
 
-**What it does:** Display HTCondor pool resource advertisements.
+**What it does:** Display resource pool advertisements and availability.
 
-**Complete command form:** `condor_status` is the executable; the remaining words are targets/subcommands and options. Options: `-total` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_status -total. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-total` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display resource pool advertisements and availability. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTCondor worker status` vendor manual or installed `--help`; [online vendor reference](https://htcondor.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 62. `condor_history -limit 25`
 
-**Expected output:** Display HTCondor pool resource advertisements. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 359  |  **Tool/purpose:** condor_history operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 62. condor_history -limit 25
+**Exact command:**
 
 ```bash
 condor_history -limit 25
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `condor_history` is the executable; the remaining words are targets/subcommands and options. Options: `-limit` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** condor_history -limit 25. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-limit` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `condor_history operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 63. `condor_ping -type SCHEDD READ`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 360  |  **Tool/purpose:** condor_ping operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 63. condor_ping -type SCHEDD READ
+**Exact command:**
 
 ```bash
 condor_ping -type SCHEDD READ
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `condor_ping` is the executable; the remaining words are targets/subcommands and options. Options: `-type` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
-
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
-
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
-
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
+**Syntax:** condor_ping -type SCHEDD READ. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-type` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `condor_ping operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
