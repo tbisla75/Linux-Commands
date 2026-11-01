@@ -1,0 +1,17 @@
+# Secrets, customer artifacts and common accidental uploads
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.kubeconfig
+kubeconfig
+admin.conf
+kubeadm-join*.txt
+*kubeadm-token*
+*-token.txt
+*.log
+*.bak
+*.swp
