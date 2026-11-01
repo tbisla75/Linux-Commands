@@ -20,6 +20,7 @@ Production-oriented Linux command library from **installation and administration
 | 🚨 [10 — First 60 Seconds: Linux Logs and Diagnostics](10-FAST-LOG-TROUBLESHOOTING.md) | Failed services, journal errors, SSH/PAM, network, disk, I/O, Kubernetes and K3s logs |
 | 🔐 [09 — Authorized Forgotten Password Recovery](09-FORGOTTEN-PASSWORD-RECOVERY.md) | Ubuntu/Debian recovery, RHEL rescue, cloud accounts, SELinux relabel |
 | [08 — AWS, Azure, GCP & Bare-Metal Deployments](08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md) | Step-by-step host/cluster integration and cloud CLI diagnostics |
+| 🧪 [11 — CERN-Style HPC, HTC & Parallel Supercomputing](11-CERN-STYLE-HPC-HTC-PARALLEL-COMPUTING.md) | HTCondor, Slurm, MPI/OpenMP, GPU clusters, RDMA, storage, node sizing and advanced troubleshooting |
 
 ## Ready-to-adapt scripts
 
