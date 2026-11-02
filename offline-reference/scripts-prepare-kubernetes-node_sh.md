@@ -1,802 +1,910 @@
-# Offline Bash provisioning script walkthrough: scripts/prepare-kubernetes-node.sh
+# Offline command / configuration reference: `scripts/prepare-kubernetes-node.sh`
 
-**Study and review offline.** This script includes shell control flow, file writes, systemd and package manager actions; **default dry-run** protects against accidental execution. Run only on approved hosts after reviewing every statement and vendor/network constraints.
+Generated from repository source by `tools/build_offline_reference.py`. **50 items**. This copy works offline. No commands were executed.
 
-## 1. Line 4: set -Eeuo pipefail
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-```bash
-set -Eeuo pipefail
-```
+**Original file:** [`scripts/prepare-kubernetes-node.sh`](../scripts/prepare-kubernetes-node.sh)
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+### 1. `--role) ROLE="${2:?missing role}"; shift 2 ;;`
 
-**Syntax:** executable/statement `set` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `set --help` when supported.
+**Source line:** 18  |  **Tool/purpose:** --role) operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 2. Line 6: ROLE=""; MINOR="v1.37"; MODE="dry-run"; SWAP_MODE="keep"
-
-```bash
-ROLE=""; MINOR="v1.37"; MODE="dry-run"; SWAP_MODE="keep"
-```
-
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
-
-**Syntax:** executable/statement `ROLE="";` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `ROLE=""; --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 3. Line 18: --role) ROLE="${2:?missing role}"; shift 2 ;;
+**Exact command:**
 
 ```bash
 --role) ROLE="${2:?missing role}"; shift 2 ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `--role)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `--role) --help` when supported.
+**Syntax:** --role) ROLE=${2:?missing role}; shift 2 ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--role)` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `--role) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 2. `--k8s-minor) MINOR="${2:?missing minor}"; shift 2 ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 19  |  **Tool/purpose:** --k8s-minor) operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 4. Line 19: --k8s-minor) MINOR="${2:?missing minor}"; shift 2 ;;
+**Exact command:**
 
 ```bash
 --k8s-minor) MINOR="${2:?missing minor}"; shift 2 ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `--k8s-minor)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `--k8s-minor) --help` when supported.
+**Syntax:** --k8s-minor) MINOR=${2:?missing minor}; shift 2 ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--k8s-minor)` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `--k8s-minor) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 3. `--apply) MODE="apply"; shift ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 20  |  **Tool/purpose:** --apply) operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 5. Line 20: --apply) MODE="apply"; shift ;;
+**Exact command:**
 
 ```bash
 --apply) MODE="apply"; shift ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `--apply)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `--apply) --help` when supported.
+**Syntax:** --apply) MODE=apply; shift ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--apply)` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `--apply) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 4. `--dry-run) MODE="dry-run"; shift ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 21  |  **Tool/purpose:** --dry-run) operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 6. Line 21: --dry-run) MODE="dry-run"; shift ;;
+**Exact command:**
 
 ```bash
 --dry-run) MODE="dry-run"; shift ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `--dry-run)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `--dry-run) --help` when supported.
+**Syntax:** --dry-run) MODE=dry-run; shift ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--dry-run)` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `--dry-run) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 5. `--disable-swap) SWAP_MODE="disable"; shift ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 22  |  **Tool/purpose:** --disable-swap) operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 7. Line 22: --disable-swap) SWAP_MODE="disable"; shift ;;
+**Exact command:**
 
 ```bash
 --disable-swap) SWAP_MODE="disable"; shift ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `--disable-swap)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `--disable-swap) --help` when supported.
+**Syntax:** --disable-swap) SWAP_MODE=disable; shift ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--disable-swap)` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `--disable-swap) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 6. `-h\|--help) usage; exit 0 ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 23  |  **Tool/purpose:** -h|--help) operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 8. Line 23: -h|--help) usage; exit 0 ;;
+**Exact command:**
 
 ```bash
 -h|--help) usage; exit 0 ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `-h|--help)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `-h|--help) --help` when supported.
+**Syntax:** -h|--help) usage; exit 0 ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-h\|--help)` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `-h|--help) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 7. `*) echo "Unknown argument: $1" >&2; usage; exit 2 ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 24  |  **Tool/purpose:** *) operation  |  **Impact:** **LOCAL FILE WRITE / POSSIBLY MUTATING**
 
-## 9. Line 24: *) echo "Unknown argument: $1" >&2; usage; exit 2 ;;
+**Exact command:**
 
 ```bash
 *) echo "Unknown argument: $1" >&2; usage; exit 2 ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `*)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `*) --help` when supported.
+**Syntax:** *) echo Unknown argument: $1 >&2; usage;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Shell redirection may create/truncate files; verify output destination.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `*) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 8. `source /etc/os-release`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 31  |  **Tool/purpose:** source operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 10. Line 27: [[ "$ROLE" == "control-plane" || "$ROLE" == "worker" ]] || { usage; exit 2; }
-
-```bash
-[[ "$ROLE" == "control-plane" || "$ROLE" == "worker" ]] || { usage; exit 2; }
-```
-
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
-
-**Syntax:** executable/statement `[[` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `[[ --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 11. Line 28: [[ "$MINOR" =~ ^v1\.[0-9]+$ ]] || { echo 'Expected minor like v1.37' >&2; exit 2; }
-
-```bash
-[[ "$MINOR" =~ ^v1\.[0-9]+$ ]] || { echo 'Expected minor like v1.37' >&2; exit 2; }
-```
-
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
-
-**Syntax:** executable/statement `[[` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `[[ --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 12. Line 29: [[ -f /etc/os-release ]] || { echo 'Missing /etc/os-release' >&2; exit 1; }
-
-```bash
-[[ -f /etc/os-release ]] || { echo 'Missing /etc/os-release' >&2; exit 1; }
-```
-
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
-
-**Syntax:** executable/statement `[[` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `[[ --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 13. Line 31: source /etc/os-release
+**Exact command:**
 
 ```bash
 source /etc/os-release
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `source` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `source --help` when supported.
+**Syntax:** source /etc/os-release. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `source operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 9. `FAMILY=""`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 32  |  **Tool/purpose:** FAMILY= operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 14. Line 32: FAMILY=""
+**Exact command:**
 
 ```bash
 FAMILY=""
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `FAMILY=""` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `FAMILY="" --help` when supported.
+**Syntax:** FAMILY=. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `FAMILY= operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 10. `ubuntu\|debian) FAMILY="deb" ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 34  |  **Tool/purpose:** ubuntu|debian) operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 15. Line 34: ubuntu|debian) FAMILY="deb" ;;
+**Exact command:**
 
 ```bash
 ubuntu|debian) FAMILY="deb" ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `ubuntu|debian)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `ubuntu|debian) --help` when supported.
+**Syntax:** ubuntu|debian) FAMILY=deb ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ubuntu|debian) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 11. `rhel\|rocky\|almalinux\|centos) FAMILY="rpm" ;;`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 35  |  **Tool/purpose:** rhel|rocky|almalinux|centos) operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 16. Line 35: rhel|rocky|almalinux|centos) FAMILY="rpm" ;;
+**Exact command:**
 
 ```bash
 rhel|rocky|almalinux|centos) FAMILY="rpm" ;;
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `rhel|rocky|almalinux|centos)` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `rhel|rocky|almalinux|centos) --help` when supported.
+**Syntax:** rhel|rocky|almalinux|centos) FAMILY=rpm ;;. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `rhel|rocky|almalinux|centos) operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 12. `echo "Detected: $PRETTY_NAME / family=$FAMILY / role=$ROLE / Kubernetes=$MINOR / mode=$MODE"`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 44  |  **Tool/purpose:** echo operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 17. Line 39: elif [[ " ${ID_LIKE:-} " == *" rhel "* || " ${ID_LIKE:-} " == *" fedora "* ]]; then FAMILY="rpm"
-
-```bash
-elif [[ " ${ID_LIKE:-} " == *" rhel "* || " ${ID_LIKE:-} " == *" fedora "* ]]; then FAMILY="rpm"
-```
-
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
-
-**Syntax:** executable/statement `elif` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `elif --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 18. Line 42: [[ -n "$FAMILY" ]] || { echo "Unsupported distribution $ID" >&2; exit 1; }
-
-```bash
-[[ -n "$FAMILY" ]] || { echo "Unsupported distribution $ID" >&2; exit 1; }
-```
-
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
-
-**Syntax:** executable/statement `[[` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `[[ --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
-
-## 19. Line 44: echo "Detected: $PRETTY_NAME / family=$FAMILY / role=$ROLE / Kubernetes=$MINOR / mode=$MODE"
+**Exact command:**
 
 ```bash
 echo "Detected: $PRETTY_NAME / family=$FAMILY / role=$ROLE / Kubernetes=$MINOR / mode=$MODE"
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
+**Syntax:** echo Detected: $PRETTY_NAME / family=$FAMILY / role=$ROLE / Kubernetes=$MINOR / mode=$MODE. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `$PRETTY_NAME`, `$FAMILY`, `$ROLE`, `$MINOR`, `$MODE`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 13. `echo "WARNING: prerequisites only. Check approved CNI/CSI, cloud CCM, HA LBs, IP ranges, OS support and change appr…`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 45  |  **Tool/purpose:** echo operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 20. Line 45: echo "WARNING: prerequisites only. Check approved CNI/CSI, cloud CCM, HA LBs, IP ranges, OS support and change
+**Exact command:**
 
 ```bash
 echo "WARNING: prerequisites only. Check approved CNI/CSI, cloud CCM, HA LBs, IP ranges, OS support and change approval."
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
+**Syntax:** echo WARNING: prerequisites only. Check approved CNI/CSI, cloud CCM, HA LBs, IP ranges, OS support and change approval.. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 14. `echo "Existing kubeadm credentials detected. Refusing to modify a configured node." >&2; exit 1`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 47  |  **Tool/purpose:** echo operation  |  **Impact:** **LOCAL FILE WRITE / POSSIBLY MUTATING**
 
-## 21. Line 47: echo "Existing kubeadm credentials detected. Refusing to modify a configured node." >&2; exit 1
+**Exact command:**
 
 ```bash
 echo "Existing kubeadm credentials detected. Refusing to modify a configured node." >&2; exit 1
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
+**Syntax:** echo Existing kubeadm credentials detected. Refusing to modify a configured node. >&2; exit 1. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Shell redirection may create/truncate files; verify output destination.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 15. `exit 0`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 56  |  **Tool/purpose:** exit operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 22. Line 56: exit 0
+**Exact command:**
 
 ```bash
 exit 0
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `exit` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `exit --help` when supported.
+**Syntax:** exit 0. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `exit operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 16. `export DEBIAN_FRONTEND=noninteractive`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 59  |  **Tool/purpose:** export operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 23. Line 59: export DEBIAN_FRONTEND=noninteractive
+**Exact command:**
 
 ```bash
 export DEBIAN_FRONTEND=noninteractive
 ```
 
-**Purpose:** Export environment variables
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `export` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `export --help` when supported.
+**Syntax:** export DEBIAN_FRONTEND=noninteractive. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `export operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 17. `apt-get update`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 60  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 24. Line 60: apt-get update
+**Exact command:**
 
 ```bash
 apt-get update
 ```
 
-**Purpose:** Manage Debian packages
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Syntax:** executable/statement `apt-get` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `apt-get --help` when supported.
+**Syntax:** apt-get update. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 18. `apt-get install -y ca-certificates curl gpg apt-transport-https conntrack socat iproute2`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 61  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 25. Line 61: apt-get install -y ca-certificates curl gpg apt-transport-https conntrack socat iproute2
+**Exact command:**
 
 ```bash
 apt-get install -y ca-certificates curl gpg apt-transport-https conntrack socat iproute2
 ```
 
-**Purpose:** Manage Debian packages
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Syntax:** executable/statement `apt-get` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `apt-get --help` when supported.
+**Syntax:** apt-get install -y ca-certificates curl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 19. `apt-get install -y containerd`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 62  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 26. Line 62: apt-get install -y containerd
+**Exact command:**
 
 ```bash
 apt-get install -y containerd
 ```
 
-**Purpose:** Manage Debian packages
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Syntax:** executable/statement `apt-get` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `apt-get --help` when supported.
+**Syntax:** apt-get install -y containerd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 20. `command -v dnf >/dev/null \|\| { echo 'RHEL family requires dnf and working repositories' >&2; exit 1; }`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 64  |  **Tool/purpose:** command operation  |  **Impact:** **LOCAL FILE WRITE / POSSIBLY MUTATING**
 
-## 27. Line 64: command -v dnf >/dev/null || { echo 'RHEL family requires dnf and working repositories' >&2; exit 1; }
+**Exact command:**
 
 ```bash
 command -v dnf >/dev/null || { echo 'RHEL family requires dnf and working repositories' >&2; exit 1; }
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `command` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `command --help` when supported.
+**Syntax:** command -v dnf >/dev/null ||. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-v` — Verbose output or version depending on command.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate). `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Shell redirection may create/truncate files; verify output destination.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `command operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 21. `dnf install -y ca-certificates curl conntrack-tools socat iproute`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 65  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 28. Line 65: dnf install -y ca-certificates curl conntrack-tools socat iproute
+**Exact command:**
 
 ```bash
 dnf install -y ca-certificates curl conntrack-tools socat iproute
 ```
 
-**Purpose:** Manage RHEL-family RPM packages
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Syntax:** executable/statement `dnf` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `dnf --help` when supported.
+**Syntax:** dnf install -y ca-certificates curl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 22. `dnf install -y containerd \|\| { echo 'containerd package unavailable: configure an approved vendor repository and re…`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 66  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 29. Line 66: dnf install -y containerd || { echo 'containerd package unavailable: configure an approved vendor repository a
+**Exact command:**
 
 ```bash
 dnf install -y containerd || { echo 'containerd package unavailable: configure an approved vendor repository and retry' >&2; exit 1; }
 ```
 
-**Purpose:** Manage RHEL-family RPM packages
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Syntax:** executable/statement `dnf` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `dnf --help` when supported.
+**Syntax:** dnf install -y containerd ||. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate). `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 23. `modprobe overlay`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 72  |  **Tool/purpose:** modprobe operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 30. Line 72: modprobe overlay
+**Exact command:**
 
 ```bash
 modprobe overlay
 ```
 
-**Purpose:** Load kernel module into running OS
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `modprobe` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `modprobe --help` when supported.
+**Syntax:** modprobe overlay. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `modprobe operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 24. `modprobe br_netfilter`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 73  |  **Tool/purpose:** modprobe operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 31. Line 73: modprobe br_netfilter
+**Exact command:**
 
 ```bash
 modprobe br_netfilter
 ```
 
-**Purpose:** Load kernel module into running OS
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `modprobe` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `modprobe --help` when supported.
+**Syntax:** modprobe br_netfilter. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `modprobe operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 25. `sysctl --system`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 79  |  **Tool/purpose:** sysctl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 32. Line 79: sysctl --system
+**Exact command:**
 
 ```bash
 sysctl --system
 ```
 
-**Purpose:** Apply kernel sysctl configuration
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `sysctl` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `sysctl --help` when supported.
+**Syntax:** sysctl --system. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--system` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sysctl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 26. `mkdir -p /etc/containerd`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 80  |  **Tool/purpose:** mkdir operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 33. Line 80: mkdir -p /etc/containerd
+**Exact command:**
 
 ```bash
 mkdir -p /etc/containerd
 ```
 
-**Purpose:** Create configuration directory
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `mkdir` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `mkdir --help` when supported.
+**Syntax:** mkdir -p /etc/containerd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-p` — Priority filter in journalctl; other meanings in other CLIs.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mkdir operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 27. `cp -a /etc/containerd/config.toml "/etc/containerd/config.toml.pre-k8s.$(date +%Y%m%d%H%M%S)"`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 82  |  **Tool/purpose:** cp operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 34. Line 82: cp -a /etc/containerd/config.toml "/etc/containerd/config.toml.pre-k8s.$(date +%Y%m%d%H%M%S)"
+**Exact command:**
 
 ```bash
 cp -a /etc/containerd/config.toml "/etc/containerd/config.toml.pre-k8s.$(date +%Y%m%d%H%M%S)"
 ```
 
-**Purpose:** Backup/copy configuration file
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `cp` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `cp --help` when supported.
+**Syntax:** cp -a /etc/containerd/config.toml /etc/containerd/config.toml.pre-k8s.$(date +%Y%m%d%H%M%S). The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-a` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `$(...)` executes a subshell for value substitution.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `cp operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 28. `containerd config default > /etc/containerd/config.toml`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 85  |  **Tool/purpose:** containerd operation  |  **Impact:** **LOCAL FILE WRITE / POSSIBLY MUTATING**
 
-## 35. Line 85: containerd config default > /etc/containerd/config.toml
+**Exact command:**
 
 ```bash
 containerd config default > /etc/containerd/config.toml
 ```
 
-**Purpose:** Generate/check container runtime configuration
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `containerd` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `containerd --help` when supported.
+**Syntax:** containerd config default > /etc/containerd/config.toml. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Shell redirection may create/truncate files; verify output destination.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `containerd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 29. `sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 87  |  **Tool/purpose:** sed operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 36. Line 87: sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+**Exact command:**
 
 ```bash
 sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
 ```
 
-**Purpose:** Edit configuration in-place
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `sed` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `sed --help` when supported.
+**Syntax:** sed -i s/SystemdCgroup = false/SystemdCgroup = true/g /etc/containerd/config.toml. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-i` — Inode usage in df, interactive or interface depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sed operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 30. `grep -q 'SystemdCgroup = true' /etc/containerd/config.toml \|\| { echo 'Failed to enable systemd cgroups' >&2; exit 1…`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 88  |  **Tool/purpose:** grep operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 37. Line 88: grep -q 'SystemdCgroup = true' /etc/containerd/config.toml || { echo 'Failed to enable systemd cgroups' >&2; e
+**Exact command:**
 
 ```bash
 grep -q 'SystemdCgroup = true' /etc/containerd/config.toml || { echo 'Failed to enable systemd cgroups' >&2; exit 1; }
 ```
 
-**Purpose:** Search configuration for expected setting
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `grep` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `grep --help` when supported.
+**Syntax:** grep -q SystemdCgroup = true /etc/containerd/config.toml ||. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-q` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate). `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `grep operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 31. `systemctl enable --now containerd`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 89  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 38. Line 89: systemctl enable --now containerd
+**Exact command:**
 
 ```bash
 systemctl enable --now containerd
 ```
 
-**Purpose:** Configure/start/restart systemd service
+**What it does:** Inspect or modify systemd-managed services and units.
 
-**Syntax:** executable/statement `systemctl` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `systemctl --help` when supported.
+**Syntax:** systemctl enable --now containerd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--now` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Inspect or modify systemd-managed services and units. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 32. `systemctl restart containerd`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 90  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 39. Line 90: systemctl restart containerd
+**Exact command:**
 
 ```bash
 systemctl restart containerd
 ```
 
-**Purpose:** Configure/start/restart systemd service
+**What it does:** Restart a unit, potentially interrupting production traffic.
 
-**Syntax:** executable/statement `systemctl` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `systemctl --help` when supported.
+**Syntax:** systemctl restart containerd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Restart a unit, potentially interrupting production traffic. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 33. `swapoff -a`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 92  |  **Tool/purpose:** swapoff operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 40. Line 92: swapoff -a
+**Exact command:**
 
 ```bash
 swapoff -a
 ```
 
-**Purpose:** Disable swap
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `swapoff` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `swapoff --help` when supported.
+**Syntax:** swapoff -a. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-a` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `swapoff operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 34. `cp -a /etc/fstab "/etc/fstab.pre-k8s.$(date +%Y%m%d%H%M%S)"`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 93  |  **Tool/purpose:** cp operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 41. Line 93: cp -a /etc/fstab "/etc/fstab.pre-k8s.$(date +%Y%m%d%H%M%S)"
+**Exact command:**
 
 ```bash
 cp -a /etc/fstab "/etc/fstab.pre-k8s.$(date +%Y%m%d%H%M%S)"
 ```
 
-**Purpose:** Backup/copy configuration file
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `cp` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `cp --help` when supported.
+**Syntax:** cp -a /etc/fstab /etc/fstab.pre-k8s.$(date +%Y%m%d%H%M%S). The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-a` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `$(...)` executes a subshell for value substitution.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `cp operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 35. `sed -i -E '/^[[:space:]]*[^#].*[[:space:]]swap[[:space:]]/ s/^/# disabled-for-kubeadm /' /etc/fstab`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 94  |  **Tool/purpose:** sed operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 42. Line 94: sed -i -E '/^[[:space:]]*[^#].*[[:space:]]swap[[:space:]]/ s/^/# disabled-for-kubeadm /' /etc/fstab
+**Exact command:**
 
 ```bash
 sed -i -E '/^[[:space:]]*[^#].*[[:space:]]swap[[:space:]]/ s/^/# disabled-for-kubeadm /' /etc/fstab
 ```
 
-**Purpose:** Edit configuration in-place
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `sed` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `sed --help` when supported.
+**Syntax:** sed -i -E /^[[:space:]]*[^#].*[[:space:]]swap[[:space:]]/ s/^/# disabled-for-kubeadm / /etc/fstab. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-i` — Inode usage in df, interactive or interface depending on command.
+**Option:** `-E` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sed operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 36. `mkdir -p -m 0755 /etc/apt/keyrings`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 97  |  **Tool/purpose:** mkdir operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 43. Line 97: mkdir -p -m 0755 /etc/apt/keyrings
+**Exact command:**
 
 ```bash
 mkdir -p -m 0755 /etc/apt/keyrings
 ```
 
-**Purpose:** Create configuration directory
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `mkdir` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `mkdir --help` when supported.
+**Syntax:** mkdir -p -m 0755 /etc/apt/keyrings. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-p` — Priority filter in journalctl; other meanings in other CLIs.
+**Option:** `-m` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mkdir operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 37. `curl -fsSL "https://pkgs.k8s.io/core:/stable:/$MINOR/deb/Release.key" \| gpg --dearmor --yes -o /etc/apt/keyrings/ku…`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 98  |  **Tool/purpose:** HTTP request/diagnostic  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 44. Line 98: curl -fsSL "https://pkgs.k8s.io/core:/stable:/$MINOR/deb/Release.key" | gpg --dearmor --yes -o /etc/apt/keyrin
+**Exact command:**
 
 ```bash
 curl -fsSL "https://pkgs.k8s.io/core:/stable:/$MINOR/deb/Release.key" | gpg --dearmor --yes -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-**Purpose:** Fetch external installer/package metadata
+**What it does:** Request or transfer network content, with protocol and TLS behavior governed by flags.
 
-**Syntax:** executable/statement `curl` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `curl --help` when supported.
+**Syntax:** curl -fsSL https://pkgs.k8s.io/core:/stable:/$MINOR/deb/Release.key | gpg. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-fsSL` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--dearmor` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--yes` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Substitute before running:** `$MINOR`. Never assume an example target is the current cluster.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Request or transfer network content, with protocol and TLS behavior governed by flags. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `HTTP request/diagnostic` vendor manual or installed `--help`; [online vendor reference](https://curl.se/docs/manpage.html).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 38. `chmod 0644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 99  |  **Tool/purpose:** chmod operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 45. Line 99: chmod 0644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+**Exact command:**
 
 ```bash
 chmod 0644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `chmod` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `chmod --help` when supported.
+**Syntax:** chmod 0644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `chmod operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 39. `printf 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/%s/deb/ /\n'…`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 100  |  **Tool/purpose:** printf operation  |  **Impact:** **LOCAL FILE WRITE / POSSIBLY MUTATING**
 
-## 46. Line 100: printf 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/%s/deb/
+**Exact command:**
 
 ```bash
 printf 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/%s/deb/ /\n' "$MINOR" >/etc/apt/sources.list.d/kubernetes.list
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `printf` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `printf --help` when supported.
+**Syntax:** printf deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/%s/deb/ /\n $MINOR >/etc/apt/sources.list.d/kubernetes.list. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `$MINOR`. Never assume an example target is the current cluster.
+**Shell syntax:** `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Shell redirection may create/truncate files; verify output destination. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `printf operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 40. `apt-get update`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 101  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 47. Line 101: apt-get update
+**Exact command:**
 
 ```bash
 apt-get update
 ```
 
-**Purpose:** Manage Debian packages
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Syntax:** executable/statement `apt-get` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `apt-get --help` when supported.
+**Syntax:** apt-get update. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 41. `apt-get install -y kubelet kubeadm kubectl`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 102  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 48. Line 102: apt-get install -y kubelet kubeadm kubectl
+**Exact command:**
 
 ```bash
 apt-get install -y kubelet kubeadm kubectl
 ```
 
-**Purpose:** Manage Debian packages
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Syntax:** executable/statement `apt-get` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `apt-get --help` when supported.
+**Syntax:** apt-get install -y kubelet kubeadm. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 42. `apt-mark hold kubelet kubeadm kubectl`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 103  |  **Tool/purpose:** apt-mark operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 49. Line 103: apt-mark hold kubelet kubeadm kubectl
+**Exact command:**
 
 ```bash
 apt-mark hold kubelet kubeadm kubectl
 ```
 
-**Purpose:** Manage Debian packages
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `apt-mark` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `apt-mark --help` when supported.
+**Syntax:** apt-mark hold kubelet kubeadm kubectl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `apt-mark operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 43. `dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes \|\| dnf install -y kubelet kubeadm kubectl --set…`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 114  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 50. Line 114: dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes || dnf install -y kubelet kubeadm kubectl 
+**Exact command:**
 
 ```bash
 dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes || dnf install -y kubelet kubeadm kubectl --setopt=disable_excludes=kubernetes
 ```
 
-**Purpose:** Manage RHEL-family RPM packages
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Syntax:** executable/statement `dnf` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `dnf --help` when supported.
+**Syntax:** dnf install -y kubelet kubeadm. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Option:** `--disableexcludes=kubernetes` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Option:** `--setopt=disable_excludes=kubernetes` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 44. `systemctl enable kubelet`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 116  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 51. Line 116: systemctl enable kubelet
+**Exact command:**
 
 ```bash
 systemctl enable kubelet
 ```
 
-**Purpose:** Configure/start/restart systemd service
+**What it does:** Inspect or modify systemd-managed services and units.
 
-**Syntax:** executable/statement `systemctl` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `systemctl --help` when supported.
+**Syntax:** systemctl enable kubelet. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Inspect or modify systemd-managed services and units. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 45. `echo "Prepared $ROLE node, no cluster bootstrap/join performed."`
 
-**Impact:** 🟠 May change host software, configuration or runtime state; needs approval and backup.
+**Source line:** 117  |  **Tool/purpose:** echo operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 52. Line 117: echo "Prepared $ROLE node, no cluster bootstrap/join performed."
+**Exact command:**
 
 ```bash
 echo "Prepared $ROLE node, no cluster bootstrap/join performed."
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
+**Syntax:** echo Prepared $ROLE node, no cluster bootstrap/join performed.. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `$ROLE`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 46. `kubeadm version -o short`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 118  |  **Tool/purpose:** kubeadm cluster lifecycle  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 53. Line 118: kubeadm version -o short
+**Exact command:**
 
 ```bash
 kubeadm version -o short
 ```
 
-**Purpose:** Inspect Kubernetes bootstrap version
+**What it does:** Initialize, join, inspect or upgrade a self-managed Kubernetes control plane; cluster-wide effects are possible.
 
-**Syntax:** executable/statement `kubeadm` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `kubeadm --help` when supported.
+**Syntax:** kubeadm version -o short. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Initialize, join, inspect or upgrade a self-managed Kubernetes control plane; cluster-wide effects are possible. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `kubeadm cluster lifecycle` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 47. `containerd --version`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 119  |  **Tool/purpose:** containerd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 54. Line 119: containerd --version
+**Exact command:**
 
 ```bash
 containerd --version
 ```
 
-**Purpose:** Generate/check container runtime configuration
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `containerd` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `containerd --help` when supported.
+**Syntax:** containerd --version. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--version` — Display tool version.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `containerd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 48. `echo "NEXT: configure OS firewall/SELinux per approved CNI, network routes, cloud provider integration and approved…`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 120  |  **Tool/purpose:** echo operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 55. Line 120: echo "NEXT: configure OS firewall/SELinux per approved CNI, network routes, cloud provider integration and app
+**Exact command:**
 
 ```bash
 echo "NEXT: configure OS firewall/SELinux per approved CNI, network routes, cloud provider integration and approved HA API endpoint."
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
+**Syntax:** echo NEXT: configure OS firewall/SELinux per approved CNI, network routes, cloud provider integration and approved HA API endpoint.. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 49. `echo "CONTROL PLANE: run kubeadm init with reviewed HA config on FIRST control-plane node; configure CNI; join rema…`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 121  |  **Tool/purpose:** echo operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 56. Line 121: echo "CONTROL PLANE: run kubeadm init with reviewed HA config on FIRST control-plane node; configure CNI; join
+**Exact command:**
 
 ```bash
 echo "CONTROL PLANE: run kubeadm init with reviewed HA config on FIRST control-plane node; configure CNI; join remaining CPs using approved certificate-key/token."
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
+**Syntax:** echo CONTROL PLANE: run kubeadm init with reviewed HA config on FIRST control-plane node; configure CNI; join remaining CPs using approved certificate-key/token.. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
+### 50. `echo "WORKER: run kubeadm join command obtained securely from cluster owner. NEVER commit join tokens to GitHub."`
 
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Source line:** 122  |  **Tool/purpose:** echo operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-## 57. Line 122: echo "WORKER: run kubeadm join command obtained securely from cluster owner. NEVER commit join tokens to GitHu
+**Exact command:**
 
 ```bash
 echo "WORKER: run kubeadm join command obtained securely from cluster owner. NEVER commit join tokens to GitHub."
 ```
 
-**Purpose:** Shell statement in a guarded bootstrap script; inspect full surrounding conditionals and distro context.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** executable/statement `echo` with the shown options and arguments. Shell variables, command substitutions, tests and redirection are evaluated by Bash. Confirm flags via local `echo --help` when supported.
-
-**Execution context:** This line is normally guarded by script argument parsing, distro detection and dry-run before apply; **do not copy it independently without those preconditions**.
-
-**Impact:** Condition, diagnostic or internal Bash flow, typically not an independent infrastructure change.
+**Syntax:** echo WORKER: run kubeadm join command obtained securely from cluster owner. NEVER commit join tokens to GitHub.. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `echo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
