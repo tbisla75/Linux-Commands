@@ -1,468 +1,531 @@
-# Offline explanations: 08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md
+# Offline command / configuration reference: `08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md`
 
-Source: [08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md](../08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md). This is a **local, internet-independent** explanation of every terminal example in the runbook, with syntax, prerequisites and operational risk. Validate against actual installed releases.
+Generated from repository source by `tools/build_offline_reference.py`. **29 items**. This copy works offline. No commands were executed.
 
-## 1. aws sts get-caller-identity
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md`](../08-CLOUD-BAREMETAL-CLUSTER-DEPLOYMENT.md)
+
+### 1. `aws sts get-caller-identity`
+
+**Source line:** 10  |  **Tool/purpose:** AWS CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 aws sts get-caller-identity
 ```
 
-**What it does:** Inspect AWS account infrastructure.
+**What it does:** Query or alter AWS resources for the selected account, region and IAM principal.
 
-**Complete command form:** `aws` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** aws sts get-caller-identity. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or alter AWS resources for the selected account, region and IAM principal. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `AWS CLI` vendor manual or installed `--help`; [online vendor reference](https://docs.aws.amazon.com/cli/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 2. `aws ec2 describe-vpcs --region eu-central-1`
 
-**Expected output:** Inspect AWS account infrastructure. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 11  |  **Tool/purpose:** AWS CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 2. aws ec2 describe-vpcs --region eu-central-1
+**Exact command:**
 
 ```bash
 aws ec2 describe-vpcs --region eu-central-1
 ```
 
-**What it does:** Inspect AWS account infrastructure.
+**What it does:** Query or alter AWS resources for the selected account, region and IAM principal.
 
-**Complete command form:** `aws` is the executable; the remaining words are targets/subcommands and options. Options: `--region` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** aws ec2 describe-vpcs --region eu-central-1. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--region` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or alter AWS resources for the selected account, region and IAM principal. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `AWS CLI` vendor manual or installed `--help`; [online vendor reference](https://docs.aws.amazon.com/cli/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 3. `aws ec2 describe-subnets --filters Name=vpc-id,Values=VPC_ID --region eu-central-1`
 
-**Expected output:** Inspect AWS account infrastructure. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 12  |  **Tool/purpose:** AWS CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 3. aws ec2 describe-subnets --filters Name=vpc-id,Values=VPC_ID --region eu-central-1
+**Exact command:**
 
 ```bash
 aws ec2 describe-subnets --filters Name=vpc-id,Values=VPC_ID --region eu-central-1
 ```
 
-**What it does:** Inspect AWS account infrastructure.
+**What it does:** Query or alter AWS resources for the selected account, region and IAM principal.
 
-**Complete command form:** `aws` is the executable; the remaining words are targets/subcommands and options. Options: `--filters` (confirm tool-specific help); `--region` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** aws ec2 describe-subnets --filters Name=vpc-id,Values=VPC_ID. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--filters` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--region` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `VPC_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or alter AWS resources for the selected account, region and IAM principal. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `AWS CLI` vendor manual or installed `--help`; [online vendor reference](https://docs.aws.amazon.com/cli/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 4. `aws ec2 describe-security-groups --group-ids SG_ID --region eu-central-1`
 
-**Expected output:** Inspect AWS account infrastructure. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 13  |  **Tool/purpose:** AWS CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 4. aws ec2 describe-security-groups --group-ids SG_ID --region eu-central-1
+**Exact command:**
 
 ```bash
 aws ec2 describe-security-groups --group-ids SG_ID --region eu-central-1
 ```
 
-**What it does:** Inspect AWS account infrastructure.
+**What it does:** Query or alter AWS resources for the selected account, region and IAM principal.
 
-**Complete command form:** `aws` is the executable; the remaining words are targets/subcommands and options. Options: `--group-ids` (confirm tool-specific help); `--region` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** aws ec2 describe-security-groups --group-ids SG_ID. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--group-ids` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--region` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `SG_ID`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or alter AWS resources for the selected account, region and IAM principal. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `AWS CLI` vendor manual or installed `--help`; [online vendor reference](https://docs.aws.amazon.com/cli/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 5. `aws elbv2 describe-load-balancers --region eu-central-1`
 
-**Expected output:** Inspect AWS account infrastructure. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 14  |  **Tool/purpose:** AWS CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 5. aws elbv2 describe-load-balancers --region eu-central-1
+**Exact command:**
 
 ```bash
 aws elbv2 describe-load-balancers --region eu-central-1
 ```
 
-**What it does:** Inspect AWS account infrastructure.
+**What it does:** Query or alter AWS resources for the selected account, region and IAM principal.
 
-**Complete command form:** `aws` is the executable; the remaining words are targets/subcommands and options. Options: `--region` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** aws elbv2 describe-load-balancers --region eu-central-1. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--region` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or alter AWS resources for the selected account, region and IAM principal. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `AWS CLI` vendor manual or installed `--help`; [online vendor reference](https://docs.aws.amazon.com/cli/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 6. `az account show --output table`
 
-**Expected output:** Inspect AWS account infrastructure. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 32  |  **Tool/purpose:** Azure CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 6. az account show --output table
+**Exact command:**
 
 ```bash
 az account show --output table
 ```
 
-**What it does:** Inspect Azure subscription/resources.
+**What it does:** Query or modify Azure resources for the selected subscription/identity.
 
-**Complete command form:** `az` is the executable; the remaining words are targets/subcommands and options. Options: `--output` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** az account show --output table. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--output` — Choose output representation such as wide/yaml/json/jsonpath.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Azure resources for the selected subscription/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Azure CLI` vendor manual or installed `--help`; [online vendor reference](https://learn.microsoft.com/en-us/cli/azure/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 7. `az network vnet show -g RG -n VNET --output json`
 
-**Expected output:** Inspect Azure subscription/resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 33  |  **Tool/purpose:** Azure CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 7. az network vnet show -g RG -n VNET --output json
+**Exact command:**
 
 ```bash
 az network vnet show -g RG -n VNET --output json
 ```
 
-**What it does:** Inspect Azure subscription/resources.
+**What it does:** Query or modify Azure resources for the selected subscription/identity.
 
-**Complete command form:** `az` is the executable; the remaining words are targets/subcommands and options. Options: `-g` (confirm tool-specific help); `-n` (confirm tool-specific help); `--output` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** az network vnet show -g. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-g` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--output` — Choose output representation such as wide/yaml/json/jsonpath.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Azure resources for the selected subscription/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Azure CLI` vendor manual or installed `--help`; [online vendor reference](https://learn.microsoft.com/en-us/cli/azure/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 8. `az network nsg list -g RG --output table`
 
-**Expected output:** Inspect Azure subscription/resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 34  |  **Tool/purpose:** Azure CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 8. az network nsg list -g RG --output table
+**Exact command:**
 
 ```bash
 az network nsg list -g RG --output table
 ```
 
-**What it does:** Inspect Azure subscription/resources.
+**What it does:** Query or modify Azure resources for the selected subscription/identity.
 
-**Complete command form:** `az` is the executable; the remaining words are targets/subcommands and options. Options: `-g` (confirm tool-specific help); `--output` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** az network nsg list -g. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-g` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--output` — Choose output representation such as wide/yaml/json/jsonpath.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Azure resources for the selected subscription/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Azure CLI` vendor manual or installed `--help`; [online vendor reference](https://learn.microsoft.com/en-us/cli/azure/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 9. `az network lb list -g RG --output table`
 
-**Expected output:** Inspect Azure subscription/resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 35  |  **Tool/purpose:** Azure CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 9. az network lb list -g RG --output table
+**Exact command:**
 
 ```bash
 az network lb list -g RG --output table
 ```
 
-**What it does:** Inspect Azure subscription/resources.
+**What it does:** Query or modify Azure resources for the selected subscription/identity.
 
-**Complete command form:** `az` is the executable; the remaining words are targets/subcommands and options. Options: `-g` (confirm tool-specific help); `--output` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** az network lb list -g. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-g` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--output` — Choose output representation such as wide/yaml/json/jsonpath.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Azure resources for the selected subscription/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Azure CLI` vendor manual or installed `--help`; [online vendor reference](https://learn.microsoft.com/en-us/cli/azure/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 10. `az vm list -g RG -d --output table`
 
-**Expected output:** Inspect Azure subscription/resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 36  |  **Tool/purpose:** Azure CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 10. az vm list -g RG -d --output table
+**Exact command:**
 
 ```bash
 az vm list -g RG -d --output table
 ```
 
-**What it does:** Inspect Azure subscription/resources.
+**What it does:** Query or modify Azure resources for the selected subscription/identity.
 
-**Complete command form:** `az` is the executable; the remaining words are targets/subcommands and options. Options: `-g` (confirm tool-specific help); `-d` (confirm tool-specific help); `--output` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** az vm list -g RG. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-g` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-d` — Disk/device or directory flag depending on command.
+**Option:** `--output` — Choose output representation such as wide/yaml/json/jsonpath.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Azure resources for the selected subscription/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Azure CLI` vendor manual or installed `--help`; [online vendor reference](https://learn.microsoft.com/en-us/cli/azure/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 11. `gcloud auth list`
 
-**Expected output:** Inspect Azure subscription/resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 54  |  **Tool/purpose:** Google Cloud CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 11. gcloud auth list
+**Exact command:**
 
 ```bash
 gcloud auth list
 ```
 
-**What it does:** Inspect Google Cloud resources.
+**What it does:** Query or modify Google Cloud resources for the selected project/identity.
 
-**Complete command form:** `gcloud` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** gcloud auth list. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Query or modify Google Cloud resources for the selected project/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Google Cloud CLI` vendor manual or installed `--help`; [online vendor reference](https://cloud.google.com/sdk/gcloud/reference).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 12. `gcloud config get-value project`
 
-**Expected output:** Inspect Google Cloud resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 55  |  **Tool/purpose:** Google Cloud CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 12. gcloud config get-value project
+**Exact command:**
 
 ```bash
 gcloud config get-value project
 ```
 
-**What it does:** Inspect Google Cloud resources.
+**What it does:** Query or modify Google Cloud resources for the selected project/identity.
 
-**Complete command form:** `gcloud` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** gcloud config get-value project. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Google Cloud resources for the selected project/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Google Cloud CLI` vendor manual or installed `--help`; [online vendor reference](https://cloud.google.com/sdk/gcloud/reference).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 13. `gcloud compute networks list`
 
-**Expected output:** Inspect Google Cloud resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 56  |  **Tool/purpose:** Google Cloud CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 13. gcloud compute networks list
+**Exact command:**
 
 ```bash
 gcloud compute networks list
 ```
 
-**What it does:** Inspect Google Cloud resources.
+**What it does:** Query or modify Google Cloud resources for the selected project/identity.
 
-**Complete command form:** `gcloud` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** gcloud compute networks list. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Google Cloud resources for the selected project/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Google Cloud CLI` vendor manual or installed `--help`; [online vendor reference](https://cloud.google.com/sdk/gcloud/reference).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 14. `gcloud compute subnets list --regions=europe-west6`
 
-**Expected output:** Inspect Google Cloud resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 57  |  **Tool/purpose:** Google Cloud CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 14. gcloud compute subnets list --regions=europe-west6
+**Exact command:**
 
 ```bash
 gcloud compute subnets list --regions=europe-west6
 ```
 
-**What it does:** Inspect Google Cloud resources.
+**What it does:** Query or modify Google Cloud resources for the selected project/identity.
 
-**Complete command form:** `gcloud` is the executable; the remaining words are targets/subcommands and options. Options: `--regions=europe-west6` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** gcloud compute subnets list --regions=europe-west6. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--regions=europe-west6` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Google Cloud resources for the selected project/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Google Cloud CLI` vendor manual or installed `--help`; [online vendor reference](https://cloud.google.com/sdk/gcloud/reference).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 15. `gcloud compute instances list`
 
-**Expected output:** Inspect Google Cloud resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 58  |  **Tool/purpose:** Google Cloud CLI  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 15. gcloud compute instances list
+**Exact command:**
 
 ```bash
 gcloud compute instances list
 ```
 
-**What it does:** Inspect Google Cloud resources.
+**What it does:** Query or modify Google Cloud resources for the selected project/identity.
 
-**Complete command form:** `gcloud` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** gcloud compute instances list. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query or modify Google Cloud resources for the selected project/identity. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Google Cloud CLI` vendor manual or installed `--help`; [online vendor reference](https://cloud.google.com/sdk/gcloud/reference).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 16. `hostnamectl`
 
-**Expected output:** Inspect Google Cloud resources. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 76  |  **Tool/purpose:** hostnamectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 16. hostnamectl
+**Exact command:**
 
 ```bash
 hostnamectl
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `hostnamectl` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** hostnamectl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `hostnamectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 17. `ip -br addr`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 77  |  **Tool/purpose:** Linux network configuration  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 17. ip -br addr
+**Exact command:**
 
 ```bash
 ip -br addr
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Read or change Linux addresses, links, routes and neighbor information.
 
-**Complete command form:** `ip` is the executable; the remaining words are targets/subcommands and options. Options: `-br` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** ip -br addr. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-br` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or change Linux addresses, links, routes and neighbor information. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Linux network configuration` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ip.8.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 18. `ip route`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 78  |  **Tool/purpose:** Linux network configuration  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 18. ip route
+**Exact command:**
 
 ```bash
 ip route
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Read or change Linux addresses, links, routes and neighbor information.
 
-**Complete command form:** `ip` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** ip route. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or change Linux addresses, links, routes and neighbor information. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Linux network configuration` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ip.8.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 19. `timedatectl status`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 79  |  **Tool/purpose:** timedatectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 19. timedatectl status
+**Exact command:**
 
 ```bash
 timedatectl status
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `timedatectl` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** timedatectl status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `timedatectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 20. `getent hosts k8s-api.example.internal`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 80  |  **Tool/purpose:** NSS lookup  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 20. getent hosts k8s-api.example.internal
+**Exact command:**
 
 ```bash
 getent hosts k8s-api.example.internal
 ```
 
-**What it does:** Resolve NSS hosts or user/group database.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Complete command form:** `getent` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** getent hosts k8s-api.example.internal. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 21. `nc -vz k8s-api.example.internal 6443`
 
-**Expected output:** Resolve NSS hosts or user/group database. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 81  |  **Tool/purpose:** nc operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 21. nc -vz k8s-api.example.internal 6443
+**Exact command:**
 
 ```bash
 nc -vz k8s-api.example.internal 6443
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `nc` is the executable; the remaining words are targets/subcommands and options. Options: `-vz` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** nc -vz k8s-api.example.internal 6443. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-vz` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `nc operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 22. `lsblk -f`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 82  |  **Tool/purpose:** lsblk operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 22. lsblk -f
+**Exact command:**
 
 ```bash
 lsblk -f
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `lsblk` is the executable; the remaining words are targets/subcommands and options. Options: `-f` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** lsblk -f. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-f` — Follow logs/force/filename depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `lsblk operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 23. `sudo ss -tulpen`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 83  |  **Tool/purpose:** Socket inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 23. sudo ss -tulpen
+**Exact command:**
 
 ```bash
 sudo ss -tulpen
 ```
 
-**What it does:** Show active/listening sockets.
+**What it does:** Show listening and active network sockets, protocols and owning processes when permitted.
 
-**Complete command form:** `ss` is the executable; the remaining words are targets/subcommands and options. Options: `-tulpen` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo ss -tulpen. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-tulpen` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Show listening and active network sockets, protocols and owning processes when permitted. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Socket inspection` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ss.8.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 24. `kubectl get nodes -o wide`
 
-**Expected output:** Show active/listening sockets. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 104  |  **Tool/purpose:** Kubernetes API  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 24. kubectl get nodes -o wide
+**Exact command:**
 
 ```bash
 kubectl get nodes -o wide
 ```
 
-**What it does:** Kubernetes API workload inspection.
+**What it does:** List selected Kubernetes resources and their current status.
 
-**Complete command form:** `kubectl` is the executable; the remaining words are targets/subcommands and options. Options: `-o` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** kubectl get nodes -o wide. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List selected Kubernetes resources and their current status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Kubernetes API` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/kubectl/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 25. `kubectl get pods -A -o wide`
 
-**Expected output:** Kubernetes API workload inspection. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 105  |  **Tool/purpose:** Kubernetes API  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 25. kubectl get pods -A -o wide
+**Exact command:**
 
 ```bash
 kubectl get pods -A -o wide
 ```
 
-**What it does:** Kubernetes API workload inspection.
+**What it does:** List selected Kubernetes resources and their current status.
 
-**Complete command form:** `kubectl` is the executable; the remaining words are targets/subcommands and options. Options: `-A` (confirm tool-specific help); `-o` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** kubectl get pods -A -o. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-A` — All namespaces for kubectl/oc; other tools may assign a different meaning.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List selected Kubernetes resources and their current status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Kubernetes API` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/kubectl/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 26. `kubectl get storageclass,csidriver`
 
-**Expected output:** Kubernetes API workload inspection. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 106  |  **Tool/purpose:** Kubernetes API  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 26. kubectl get storageclass,csidriver
+**Exact command:**
 
 ```bash
 kubectl get storageclass,csidriver
 ```
 
-**What it does:** Kubernetes API workload inspection.
+**What it does:** List selected Kubernetes resources and their current status.
 
-**Complete command form:** `kubectl` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** kubectl get storageclass,csidriver. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List selected Kubernetes resources and their current status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Kubernetes API` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/kubectl/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 27. `kubectl get --raw='/readyz?verbose'`
 
-**Expected output:** Kubernetes API workload inspection. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 107  |  **Tool/purpose:** Kubernetes API  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 27. kubectl get --raw='/readyz?verbose'
+**Exact command:**
 
 ```bash
 kubectl get --raw='/readyz?verbose'
 ```
 
-**What it does:** Kubernetes API workload inspection.
+**What it does:** List selected Kubernetes resources and their current status.
 
-**Complete command form:** `kubectl` is the executable; the remaining words are targets/subcommands and options. Options: `--raw='/readyz?verbose'` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** kubectl get --raw=/readyz?verbose. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--raw=/readyz?verbose` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List selected Kubernetes resources and their current status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Kubernetes API` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/kubectl/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 28. `kubectl get networkpolicy -A`
 
-**Expected output:** Kubernetes API workload inspection. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 108  |  **Tool/purpose:** Kubernetes API  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 28. kubectl get networkpolicy -A
+**Exact command:**
 
 ```bash
 kubectl get networkpolicy -A
 ```
 
-**What it does:** Kubernetes API workload inspection.
+**What it does:** List selected Kubernetes resources and their current status.
 
-**Complete command form:** `kubectl` is the executable; the remaining words are targets/subcommands and options. Options: `-A` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** kubectl get networkpolicy -A. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-A` — All namespaces for kubectl/oc; other tools may assign a different meaning.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List selected Kubernetes resources and their current status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Kubernetes API` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/kubectl/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 29. `kubectl get pdb -A`
 
-**Expected output:** Kubernetes API workload inspection. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 109  |  **Tool/purpose:** Kubernetes API  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 29. kubectl get pdb -A
+**Exact command:**
 
 ```bash
 kubectl get pdb -A
 ```
 
-**What it does:** Kubernetes API workload inspection.
+**What it does:** List selected Kubernetes resources and their current status.
 
-**Complete command form:** `kubectl` is the executable; the remaining words are targets/subcommands and options. Options: `-A` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
-
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
-
-**Expected output:** Kubernetes API workload inspection. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
-
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
+**Syntax:** kubectl get pdb -A. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-A` — All namespaces for kubectl/oc; other tools may assign a different meaning.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** List selected Kubernetes resources and their current status. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Kubernetes API` vendor manual or installed `--help`; [online vendor reference](https://kubernetes.io/docs/reference/kubectl/).
 

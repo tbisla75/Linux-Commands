@@ -1,0 +1,48 @@
+{
+  "htcondor": {
+    "candidate_notes": [
+      "Container universe adds the detected GPU flag the container command line"
+    ],
+    "id": "htcondor",
+    "published_at": "2026-09-24T19:03:59Z",
+    "source": "https://api.github.com/repos/htcondor/htcondor/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/htcondor/htcondor/releases/tag/v25.14.1",
+    "version": "v25.14.1"
+  },
+  "kernel": {
+    "id": "kernel",
+    "published_at": "",
+    "source": "https://www.kernel.org/",
+    "status": "OK",
+    "url": "https://www.kernel.org/",
+    "version": "sha256:301c91120e5068b494db"
+  },
+  "redhat": {
+    "id": "redhat",
+    "published_at": "",
+    "source": "https://access.redhat.com/security/security-updates/",
+    "status": "OK",
+    "url": "https://access.redhat.com/security/security-updates/",
+    "version": "sha256:3bef333517063b591a36"
+  },
+  "slurm": {
+    "candidate_notes": [
+      "Fix slurmctld crash on restart when shared GRES topology was removed from a node with a running job."
+    ],
+    "id": "slurm",
+    "published_at": "2026-10-13T21:08:40Z",
+    "source": "https://api.github.com/repos/SchedMD/slurm/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/SchedMD/slurm/releases/tag/slurm-26-05-5-1",
+    "version": "slurm-26-05-5-1"
+  },
+  "ubuntu": {
+    "id": "ubuntu",
+    "published_at": "",
+    "source": "https://ubuntu.com/security/notices",
+    "status": "OK",
+    "url": "https://ubuntu.com/security/notices",
+    "version": "sha256:3398859da1b1e904b7b2"
+  }
+}

@@ -1,308 +1,342 @@
-# Offline Linux command explanations: 04-LINUX-HA-CLUSTER-PACEMAKER.md
+# Offline command / configuration reference: `04-LINUX-HA-CLUSTER-PACEMAKER.md`
 
-Fully local searchable catalog sourced from [04-LINUX-HA-CLUSTER-PACEMAKER.md](../04-LINUX-HA-CLUSTER-PACEMAKER.md). Every command includes syntax, purpose, options, output and safety. Verify ambiguous flags with installed `--help` / manual pages.
+Generated from repository source by `tools/build_offline_reference.py`. **19 items**. This copy works offline. No commands were executed.
 
-## 1. hostnamectl
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`04-LINUX-HA-CLUSTER-PACEMAKER.md`](../04-LINUX-HA-CLUSTER-PACEMAKER.md)
+
+### 1. `hostnamectl`
+
+**Source line:** 10  |  **Tool/purpose:** hostnamectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 hostnamectl
 ```
 
-**Purpose:** Shows or changes hostname and host identity.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `hostnamectl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** hostnamectl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `hostnamectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 2. `timedatectl status`
 
-**Expected outcome:** Shows or changes hostname and host identity. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 11  |  **Tool/purpose:** timedatectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 2. timedatectl status
+**Exact command:**
 
 ```bash
 timedatectl status
 ```
 
-**Purpose:** Time synchronization, timezone and clock status.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `timedatectl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** timedatectl status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `timedatectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 3. `ip route`
 
-**Expected outcome:** Time synchronization, timezone and clock status. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 12  |  **Tool/purpose:** Linux network configuration  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 3. ip route
+**Exact command:**
 
 ```bash
 ip route
 ```
 
-**Purpose:** Displays or modifies Linux link/address/route state.
+**What it does:** Read or change Linux addresses, links, routes and neighbor information.
 
-**Full syntax:** executable `ip`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** ip route. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or change Linux addresses, links, routes and neighbor information. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Linux network configuration` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ip.8.html).
 
-**Inputs:** No explicit placeholders.
+### 4. `ss -tulpn`
 
-**Expected outcome:** Displays or modifies Linux link/address/route state. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 13  |  **Tool/purpose:** Socket inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 4. ss -tulpn
+**Exact command:**
 
 ```bash
 ss -tulpn
 ```
 
-**Purpose:** Displays listening/established network sockets.
+**What it does:** Show listening and active network sockets, protocols and owning processes when permitted.
 
-**Full syntax:** executable `ss`; following words identify subcommands and target, followed by options `-tulpn` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** ss -tulpn. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-tulpn` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Show listening and active network sockets, protocols and owning processes when permitted. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Socket inspection` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ss.8.html).
 
-**Inputs:** No explicit placeholders.
+### 5. `sudo pcs status`
 
-**Expected outcome:** Displays listening/established network sockets. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 14  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 5. sudo pcs status
+**Exact command:**
 
 ```bash
 sudo pcs status
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 6. `sudo pcs quorum status`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 15  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 6. sudo pcs quorum status
+**Exact command:**
 
 ```bash
 sudo pcs quorum status
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs quorum status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 7. `sudo crm_mon -1`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 16  |  **Tool/purpose:** crm_mon operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 7. sudo crm_mon -1
+**Exact command:**
 
 ```bash
 sudo crm_mon -1
 ```
 
-**Purpose:** Summarizes Pacemaker cluster status.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `crm_mon`; following words identify subcommands and target, followed by options `-1` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo crm_mon -1. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-1` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `crm_mon operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 8. `sudo pcs cluster status`
 
-**Expected outcome:** Summarizes Pacemaker cluster status. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 37  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 8. sudo pcs cluster status
+**Exact command:**
 
 ```bash
 sudo pcs cluster status
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs cluster status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 9. `sudo pcs status --full`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 38  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 9. sudo pcs status --full
+**Exact command:**
 
 ```bash
 sudo pcs status --full
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options `--full` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs status --full. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--full` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 10. `sudo pcs resource status`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 39  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 10. sudo pcs resource status
+**Exact command:**
 
 ```bash
 sudo pcs resource status
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs resource status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 11. `sudo pcs resource config`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 40  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 11. sudo pcs resource config
+**Exact command:**
 
 ```bash
 sudo pcs resource config
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs resource config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 12. `sudo pcs stonith config`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 41  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 12. sudo pcs stonith config
+**Exact command:**
 
 ```bash
 sudo pcs stonith config
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs stonith config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 13. `sudo pcs quorum status`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 42  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 13. sudo pcs quorum status
+**Exact command:**
 
 ```bash
 sudo pcs quorum status
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs quorum status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 14. `sudo journalctl -u pacemaker -n 100 --no-pager`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 43  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 14. sudo journalctl -u pacemaker -n 100 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u pacemaker -n 100 --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `-n` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo journalctl -u pacemaker -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Inputs:** No explicit placeholders.
+### 15. `sudo journalctl -u corosync -n 100 --no-pager`
 
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 44  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 15. sudo journalctl -u corosync -n 100 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u corosync -n 100 --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `-n` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo journalctl -u corosync -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Inputs:** No explicit placeholders.
+### 16. `sudo pcs resource relations`
 
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 66  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 16. sudo pcs resource relations
+**Exact command:**
 
 ```bash
 sudo pcs resource relations
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs resource relations. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 17. `sudo pcs constraint config`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 67  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 17. sudo pcs constraint config
+**Exact command:**
 
 ```bash
 sudo pcs constraint config
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs constraint config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 18. `sudo pcs node status`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 68  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 18. sudo pcs node status
+**Exact command:**
 
 ```bash
 sudo pcs node status
 ```
 
-**Purpose:** Pacemaker cluster quorum/fencing/resource management.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Full syntax:** executable `pcs`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo pcs node status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Inputs:** No explicit placeholders.
+### 19. `sudo crm_verify -L -V`
 
-**Expected outcome:** Pacemaker cluster quorum/fencing/resource management. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 69  |  **Tool/purpose:** crm_verify operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 19. sudo crm_verify -L -V
+**Exact command:**
 
 ```bash
 sudo crm_verify -L -V
 ```
 
-**Purpose:** Validates Pacemaker CIB configuration.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `crm_verify`; following words identify subcommands and target, followed by options `-L` (verify exact option in this CLI), `-V` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
-
-**Inputs:** No explicit placeholders.
-
-**Expected outcome:** Validates Pacemaker CIB configuration. Check exit code, output, service and timestamp correlation against a healthy baseline.
-
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
+**Syntax:** sudo crm_verify -L -V. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-L` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-V` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `crm_verify operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
