@@ -1,0 +1,48 @@
+{
+  "htcondor": {
+    "candidate_notes": [],
+    "id": "htcondor",
+    "published_at": "2026-11-12T22:56:42Z",
+    "source": "https://api.github.com/repos/htcondor/htcondor/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/htcondor/htcondor/releases/tag/v26.1.0",
+    "version": "v26.1.0"
+  },
+  "kernel": {
+    "id": "kernel",
+    "published_at": "",
+    "source": "https://www.kernel.org/",
+    "status": "OK",
+    "url": "https://www.kernel.org/",
+    "version": "sha256:648d8093890131006a1a"
+  },
+  "redhat": {
+    "id": "redhat",
+    "published_at": "",
+    "source": "https://access.redhat.com/security/security-updates/",
+    "status": "OK",
+    "url": "https://access.redhat.com/security/security-updates/",
+    "version": "sha256:7ef9d4e4ce6d4f27a5fe"
+  },
+  "slurm": {
+    "candidate_notes": [
+      "Fix slurmctld losing track of the nodes still completing a requeued job when a node in its allocation is removed from the configuration and slurmctld restarts, showing nodes as idle while they are still completing.",
+      "slurmctld - Prevent a crash caused by a NULL pointer dereference if a running exclusive topology job's partition is removed during a restart or reconfigure.",
+      "slurmctld - Fix crash when a federation sibling is removed while one of its job submissions is still queued."
+    ],
+    "id": "slurm",
+    "published_at": "2026-11-10T21:14:17Z",
+    "source": "https://api.github.com/repos/SchedMD/slurm/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/SchedMD/slurm/releases/tag/slurm-26-05-6-1",
+    "version": "slurm-26-05-6-1"
+  },
+  "ubuntu": {
+    "id": "ubuntu",
+    "published_at": "",
+    "source": "https://ubuntu.com/security/notices",
+    "status": "OK",
+    "url": "https://ubuntu.com/security/notices",
+    "version": "sha256:8dd4e4dcb3e3625ec5b8"
+  }
+}

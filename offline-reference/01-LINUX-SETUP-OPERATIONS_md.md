@@ -1,548 +1,622 @@
-# Offline Linux command explanations: 01-LINUX-SETUP-OPERATIONS.md
+# Offline command / configuration reference: `01-LINUX-SETUP-OPERATIONS.md`
 
-Fully local searchable catalog sourced from [01-LINUX-SETUP-OPERATIONS.md](../01-LINUX-SETUP-OPERATIONS.md). Every command includes syntax, purpose, options, output and safety. Verify ambiguous flags with installed `--help` / manual pages.
+Generated from repository source by `tools/build_offline_reference.py`. **34 items**. This copy works offline. No commands were executed.
 
-## 1. cat /etc/os-release
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`01-LINUX-SETUP-OPERATIONS.md`](../01-LINUX-SETUP-OPERATIONS.md)
+
+### 1. `cat /etc/os-release`
+
+**Source line:** 10  |  **Tool/purpose:** cat operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 cat /etc/os-release
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `cat`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** cat /etc/os-release. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `cat operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 2. `uname -r`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 11  |  **Tool/purpose:** uname operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 2. uname -r
+**Exact command:**
 
 ```bash
 uname -r
 ```
 
-**Purpose:** Kernel/architecture identification.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `uname`; following words identify subcommands and target, followed by options `-r` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** uname -r. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-r` — Reverse order or recursive depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `uname operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 3. `hostnamectl`
 
-**Expected outcome:** Kernel/architecture identification. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 12  |  **Tool/purpose:** hostnamectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 3. hostnamectl
+**Exact command:**
 
 ```bash
 hostnamectl
 ```
 
-**Purpose:** Shows or changes hostname and host identity.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `hostnamectl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** hostnamectl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `hostnamectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 4. `timedatectl status`
 
-**Expected outcome:** Shows or changes hostname and host identity. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 13  |  **Tool/purpose:** timedatectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 4. timedatectl status
+**Exact command:**
 
 ```bash
 timedatectl status
 ```
 
-**Purpose:** Time synchronization, timezone and clock status.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `timedatectl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** timedatectl status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `timedatectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 5. `id`
 
-**Expected outcome:** Time synchronization, timezone and clock status. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 14  |  **Tool/purpose:** id operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 5. id
+**Exact command:**
 
 ```bash
 id
 ```
 
-**Purpose:** Current account identity and groups.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `id`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** id. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `id operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 6. `whoami`
 
-**Expected outcome:** Current account identity and groups. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 15  |  **Tool/purpose:** whoami operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 6. whoami
+**Exact command:**
 
 ```bash
 whoami
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `whoami`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** whoami. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `whoami operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 7. `ip -br addr`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 16  |  **Tool/purpose:** Linux network configuration  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 7. ip -br addr
+**Exact command:**
 
 ```bash
 ip -br addr
 ```
 
-**Purpose:** Displays or modifies Linux link/address/route state.
+**What it does:** Read or change Linux addresses, links, routes and neighbor information.
 
-**Full syntax:** executable `ip`; following words identify subcommands and target, followed by options `-br` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** ip -br addr. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-br` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or change Linux addresses, links, routes and neighbor information. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Linux network configuration` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ip.8.html).
 
-**Inputs:** No explicit placeholders.
+### 8. `ip route`
 
-**Expected outcome:** Displays or modifies Linux link/address/route state. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 17  |  **Tool/purpose:** Linux network configuration  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 8. ip route
+**Exact command:**
 
 ```bash
 ip route
 ```
 
-**Purpose:** Displays or modifies Linux link/address/route state.
+**What it does:** Read or change Linux addresses, links, routes and neighbor information.
 
-**Full syntax:** executable `ip`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** ip route. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or change Linux addresses, links, routes and neighbor information. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Linux network configuration` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ip.8.html).
 
-**Inputs:** No explicit placeholders.
+### 9. `lsblk -f`
 
-**Expected outcome:** Displays or modifies Linux link/address/route state. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 18  |  **Tool/purpose:** lsblk operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 9. lsblk -f
+**Exact command:**
 
 ```bash
 lsblk -f
 ```
 
-**Purpose:** Enumerates block devices, partitions and filesystems.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `lsblk`; following words identify subcommands and target, followed by options `-f` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** lsblk -f. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-f` — Follow logs/force/filename depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `lsblk operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 10. `findmnt /`
 
-**Expected outcome:** Enumerates block devices, partitions and filesystems. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 19  |  **Tool/purpose:** findmnt operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 10. findmnt /
+**Exact command:**
 
 ```bash
 findmnt /
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `findmnt`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** findmnt /. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `findmnt operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 11. `sudo apt-get update`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 43  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 11. sudo apt-get update
+**Exact command:**
 
 ```bash
 sudo apt-get update
 ```
 
-**Purpose:** Ubuntu/Debian package installation/index/update command.
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Full syntax:** executable `apt-get`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo apt-get update. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Inputs:** No explicit placeholders.
+### 12. `apt list --upgradable`
 
-**Expected outcome:** Ubuntu/Debian package installation/index/update command. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 44  |  **Tool/purpose:** apt operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟠 Potentially changes operating system; get approval and rollback/recovery access.
-
-## 12. apt list --upgradable
+**Exact command:**
 
 ```bash
 apt list --upgradable
 ```
 
-**Purpose:** Ubuntu/Debian package administration.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `apt`; following words identify subcommands and target, followed by options `--upgradable` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** apt list --upgradable. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--upgradable` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `apt operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 13. `sudo dnf check-update`
 
-**Expected outcome:** Ubuntu/Debian package administration. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 45  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 13. sudo dnf check-update
+**Exact command:**
 
 ```bash
 sudo dnf check-update
 ```
 
-**Purpose:** RHEL-family package manager.
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Full syntax:** executable `dnf`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo dnf check-update. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Inputs:** No explicit placeholders.
+### 14. `sudo apt-get install -y curl jq vim`
 
-**Expected outcome:** RHEL-family package manager. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 46  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Safety:** 🟠 Potentially changes operating system; get approval and rollback/recovery access.
-
-## 14. sudo apt-get install -y curl jq vim
+**Exact command:**
 
 ```bash
 sudo apt-get install -y curl jq vim
 ```
 
-**Purpose:** Ubuntu/Debian package installation/index/update command.
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Full syntax:** executable `apt-get`; following words identify subcommands and target, followed by options `-y` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo apt-get install -y curl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Inputs:** No explicit placeholders.
+### 15. `sudo dnf install -y curl jq vim`
 
-**Expected outcome:** Ubuntu/Debian package installation/index/update command. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 47  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Safety:** 🟠 Potentially changes operating system; get approval and rollback/recovery access.
-
-## 15. sudo dnf install -y curl jq vim
+**Exact command:**
 
 ```bash
 sudo dnf install -y curl jq vim
 ```
 
-**Purpose:** RHEL-family package manager.
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Full syntax:** executable `dnf`; following words identify subcommands and target, followed by options `-y` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo dnf install -y curl. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Inputs:** No explicit placeholders.
+### 16. `systemctl --failed`
 
-**Expected outcome:** RHEL-family package manager. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 66  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟠 Potentially changes operating system; get approval and rollback/recovery access.
-
-## 16. systemctl --failed
+**Exact command:**
 
 ```bash
 systemctl --failed
 ```
 
-**Purpose:** Reads or changes state of systemd-managed services.
+**What it does:** Inspect or modify systemd-managed services and units.
 
-**Full syntax:** executable `systemctl`; following words identify subcommands and target, followed by options `--failed` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** systemctl --failed. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--failed` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or modify systemd-managed services and units. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Inputs:** No explicit placeholders.
+### 17. `systemctl status ssh --no-pager`
 
-**Expected outcome:** Reads or changes state of systemd-managed services. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 67  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 17. systemctl status ssh --no-pager
+**Exact command:**
 
 ```bash
 systemctl status ssh --no-pager
 ```
 
-**Purpose:** Reads or changes state of systemd-managed services.
+**What it does:** Inspect service state, recent logs and metadata.
 
-**Full syntax:** executable `systemctl`; following words identify subcommands and target, followed by options `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** systemctl status ssh --no-pager. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect service state, recent logs and metadata. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Inputs:** No explicit placeholders.
+### 18. `systemctl status sshd --no-pager`
 
-**Expected outcome:** Reads or changes state of systemd-managed services. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 68  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 18. systemctl status sshd --no-pager
+**Exact command:**
 
 ```bash
 systemctl status sshd --no-pager
 ```
 
-**Purpose:** Reads or changes state of systemd-managed services.
+**What it does:** Inspect service state, recent logs and metadata.
 
-**Full syntax:** executable `systemctl`; following words identify subcommands and target, followed by options `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** systemctl status sshd --no-pager. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect service state, recent logs and metadata. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Inputs:** No explicit placeholders.
+### 19. `journalctl -p err -b --no-pager`
 
-**Expected outcome:** Reads or changes state of systemd-managed services. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 69  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 19. journalctl -p err -b --no-pager
+**Exact command:**
 
 ```bash
 journalctl -p err -b --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Query system and service journal messages with boot, unit, time and priority filters.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-p` (verify exact option in this CLI), `-b` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** journalctl -p err -b --no-pager. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-p` — Priority filter in journalctl; other meanings in other CLIs.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Query system and service journal messages with boot, unit, time and priority filters. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Inputs:** No explicit placeholders.
+### 20. `journalctl -u YOUR_SERVICE --since '1 hour ago' --no-pager`
 
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 70  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 20. journalctl -u YOUR_SERVICE --since '1 hour ago' --no-pager
+**Exact command:**
 
 ```bash
 journalctl -u YOUR_SERVICE --since '1 hour ago' --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `--since` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** journalctl -u YOUR_SERVICE --since 1 hour ago. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `--since` — Select entries newer than a given time or duration.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Substitute before running:** `YOUR_SERVICE`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Inputs:** YOUR_SERVICE.
+### 21. `sudo systemctl restart YOUR_SERVICE`
 
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 71  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 21. sudo systemctl restart YOUR_SERVICE
+**Exact command:**
 
 ```bash
 sudo systemctl restart YOUR_SERVICE
 ```
 
-**Purpose:** Reads or changes state of systemd-managed services.
+**What it does:** Restart a unit, potentially interrupting production traffic.
 
-**Full syntax:** executable `systemctl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo systemctl restart YOUR_SERVICE. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_SERVICE`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Restart a unit, potentially interrupting production traffic. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Inputs:** YOUR_SERVICE.
+### 22. `df -hT`
 
-**Expected outcome:** Reads or changes state of systemd-managed services. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 91  |  **Tool/purpose:** Filesystem capacity  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟠 Potentially changes operating system; get approval and rollback/recovery access.
-
-## 22. df -hT
+**Exact command:**
 
 ```bash
 df -hT
 ```
 
-**Purpose:** Reports filesystem capacity and inode usage.
+**What it does:** Display filesystem usage; bytes with -h or inodes with -i.
 
-**Full syntax:** executable `df`; following words identify subcommands and target, followed by options `-hT` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** df -hT. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-hT` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display filesystem usage; bytes with -h or inodes with -i. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Filesystem capacity` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/df.1.html).
 
-**Inputs:** No explicit placeholders.
+### 23. `df -i`
 
-**Expected outcome:** Reports filesystem capacity and inode usage. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 92  |  **Tool/purpose:** Filesystem capacity  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 23. df -i
+**Exact command:**
 
 ```bash
 df -i
 ```
 
-**Purpose:** Reports filesystem capacity and inode usage.
+**What it does:** Display filesystem usage; bytes with -h or inodes with -i.
 
-**Full syntax:** executable `df`; following words identify subcommands and target, followed by options `-i` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** df -i. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-i` — Inode usage in df, interactive or interface depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display filesystem usage; bytes with -h or inodes with -i. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Filesystem capacity` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/df.1.html).
 
-**Inputs:** No explicit placeholders.
+### 24. `free -h`
 
-**Expected outcome:** Reports filesystem capacity and inode usage. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 93  |  **Tool/purpose:** free operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 24. free -h
+**Exact command:**
 
 ```bash
 free -h
 ```
 
-**Purpose:** RAM and swap usage.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `free`; following words identify subcommands and target, followed by options `-h` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** free -h. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-h` — Human-readable units for storage tools; help in other commands.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `free operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 25. `vmstat 1 5`
 
-**Expected outcome:** RAM and swap usage. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 94  |  **Tool/purpose:** vmstat operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 25. vmstat 1 5
+**Exact command:**
 
 ```bash
 vmstat 1 5
 ```
 
-**Purpose:** Kernel CPU, memory, swap and IO counters.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `vmstat`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** vmstat 1 5. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `vmstat operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 26. `top -b -n1 \| head -45`
 
-**Expected outcome:** Kernel CPU, memory, swap and IO counters. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 95  |  **Tool/purpose:** top operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 26. top -b -n1 | head -45
+**Exact command:**
 
 ```bash
 top -b -n1 | head -45
 ```
 
-**Purpose:** Live process usage and resource statistics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `top`; following words identify subcommands and target, followed by options `-b` (verify exact option in this CLI), `-n1` (verify exact option in this CLI), `-45` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** top -b -n1 | head. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `-n1` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-45` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `top operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 27. `ps aux --sort=-%mem \| head -15`
 
-**Expected outcome:** Live process usage and resource statistics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 96  |  **Tool/purpose:** ps operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 27. ps aux --sort=-%mem | head -15
+**Exact command:**
 
 ```bash
 ps aux --sort=-%mem | head -15
 ```
 
-**Purpose:** Lists processes and resource usage.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `ps`; following words identify subcommands and target, followed by options `--sort=-%mem` (verify exact option in this CLI), `-15` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** ps aux --sort=-%mem | head. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--sort=-%mem` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-15` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ps operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 28. `ss -tulpen`
 
-**Expected outcome:** Lists processes and resource usage. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 97  |  **Tool/purpose:** Socket inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 28. ss -tulpen
+**Exact command:**
 
 ```bash
 ss -tulpen
 ```
 
-**Purpose:** Displays listening/established network sockets.
+**What it does:** Show listening and active network sockets, protocols and owning processes when permitted.
 
-**Full syntax:** executable `ss`; following words identify subcommands and target, followed by options `-tulpen` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** ss -tulpen. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-tulpen` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Show listening and active network sockets, protocols and owning processes when permitted. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Socket inspection` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ss.8.html).
 
-**Inputs:** No explicit placeholders.
+### 29. `lsof -iTCP -sTCP:LISTEN`
 
-**Expected outcome:** Displays listening/established network sockets. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 98  |  **Tool/purpose:** lsof operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 29. lsof -iTCP -sTCP:LISTEN
+**Exact command:**
 
 ```bash
 lsof -iTCP -sTCP:LISTEN
 ```
 
-**Purpose:** Lists open files and network sockets.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `lsof`; following words identify subcommands and target, followed by options `-iTCP` (verify exact option in this CLI), `-sTCP:LISTEN` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** lsof -iTCP -sTCP:LISTEN. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-iTCP` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-sTCP:LISTEN` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `lsof operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 30. `getent passwd YOUR_USER`
 
-**Expected outcome:** Lists open files and network sockets. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 120  |  **Tool/purpose:** NSS lookup  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 30. getent passwd YOUR_USER
+**Exact command:**
 
 ```bash
 getent passwd YOUR_USER
 ```
 
-**Purpose:** Resolves NSS users, groups and hostnames.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Full syntax:** executable `getent`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** getent passwd YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Inputs:** YOUR_USER.
+### 31. `sudo visudo -c`
 
-**Expected outcome:** Resolves NSS users, groups and hostnames. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 121  |  **Tool/purpose:** visudo operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟠 Potentially changes operating system; get approval and rollback/recovery access.
-
-## 31. sudo visudo -c
+**Exact command:**
 
 ```bash
 sudo visudo -c
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `visudo`; following words identify subcommands and target, followed by options `-c` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo visudo -c. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-c` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `visudo operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 32. `sudo sshd -t`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 122  |  **Tool/purpose:** sshd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 32. sudo sshd -t
+**Exact command:**
 
 ```bash
 sudo sshd -t
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `sshd`; following words identify subcommands and target, followed by options `-t` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo sshd -t. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-t` — Type/timeout/terminal mode depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sshd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 33. `sudo getfacl /srv/data`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 123  |  **Tool/purpose:** getfacl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 33. sudo getfacl /srv/data
+**Exact command:**
 
 ```bash
 sudo getfacl /srv/data
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `getfacl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo getfacl /srv/data. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `getfacl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 34. `sudo journalctl -u sshd -n 50 --no-pager`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 124  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 34. sudo journalctl -u sshd -n 50 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u sshd -n 50 --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `-n` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
-
-**Inputs:** No explicit placeholders.
-
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
-
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
+**Syntax:** sudo journalctl -u sshd -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 

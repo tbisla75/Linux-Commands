@@ -1,420 +1,466 @@
-# Offline explanations: 06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md
+# Offline command / configuration reference: `06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md`
 
-Source: [06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md](../06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md). This is a **local, internet-independent** explanation of every terminal example in the runbook, with syntax, prerequisites and operational risk. Validate against actual installed releases.
+Generated from repository source by `tools/build_offline_reference.py`. **26 items**. This copy works offline. No commands were executed.
 
-## 1. sudo pcs status --full
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md`](../06-ENTERPRISE-HA-CLUSTER-IMPLEMENTATION.md)
+
+### 1. `sudo pcs status --full`
+
+**Source line:** 131  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 sudo pcs status --full
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. Options: `--full` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs status --full. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--full` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 2. `sudo pcs quorum status`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 132  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 2. sudo pcs quorum status
+**Exact command:**
 
 ```bash
 sudo pcs quorum status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs quorum status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 3. `sudo pcs stonith config`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 133  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 3. sudo pcs stonith config
+**Exact command:**
 
 ```bash
 sudo pcs stonith config
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs stonith config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 4. `sudo pcs resource status`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 134  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 4. sudo pcs resource status
+**Exact command:**
 
 ```bash
 sudo pcs resource status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs resource status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 5. `sudo pcs constraint config`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 135  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 5. sudo pcs constraint config
+**Exact command:**
 
 ```bash
 sudo pcs constraint config
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs constraint config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 6. `uptime`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 136  |  **Tool/purpose:** uptime operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 6. uptime
+**Exact command:**
 
 ```bash
 uptime
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `uptime` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** uptime. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `uptime operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 7. `free -h`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 137  |  **Tool/purpose:** free operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 7. free -h
+**Exact command:**
 
 ```bash
 free -h
 ```
 
-**What it does:** Read physical memory and swap statistics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `free` is the executable; the remaining words are targets/subcommands and options. Options: `-h` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** free -h. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-h` — Human-readable units for storage tools; help in other commands.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `free operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 8. `df -hT`
 
-**Expected output:** Read physical memory and swap statistics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 138  |  **Tool/purpose:** Filesystem capacity  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 8. df -hT
+**Exact command:**
 
 ```bash
 df -hT
 ```
 
-**What it does:** Report available disk blocks/inodes.
+**What it does:** Display filesystem usage; bytes with -h or inodes with -i.
 
-**Complete command form:** `df` is the executable; the remaining words are targets/subcommands and options. Options: `-hT` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** df -hT. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-hT` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Display filesystem usage; bytes with -h or inodes with -i. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Filesystem capacity` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/df.1.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 9. `sudo dnf install -y pcs pacemaker corosync fence-agents-all`
 
-**Expected output:** Report available disk blocks/inodes. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 173  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 9. sudo dnf install -y pcs pacemaker corosync fence-agents-all
+**Exact command:**
 
 ```bash
 sudo dnf install -y pcs pacemaker corosync fence-agents-all
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Complete command form:** `dnf` is the executable; the remaining words are targets/subcommands and options. Options: `-y` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo dnf install -y pcs. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 10. `sudo systemctl enable --now pcsd`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 174  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 10. sudo systemctl enable --now pcsd
+**Exact command:**
 
 ```bash
 sudo systemctl enable --now pcsd
 ```
 
-**What it does:** Inspect/change systemd unit state.
+**What it does:** Inspect or modify systemd-managed services and units.
 
-**Complete command form:** `systemctl` is the executable; the remaining words are targets/subcommands and options. Options: `--now` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo systemctl enable --now pcsd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--now` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Inspect or modify systemd-managed services and units. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 11. `sudo pcs status`
 
-**Expected output:** Inspect/change systemd unit state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 175  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 11. sudo pcs status
+**Exact command:**
 
 ```bash
 sudo pcs status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 12. `sudo apt-get update`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 191  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 12. sudo apt-get update
+**Exact command:**
 
 ```bash
 sudo apt-get update
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Complete command form:** `apt-get` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo apt-get update. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 13. `sudo apt-get install -y pacemaker corosync pcs resource-agents fence-agents`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 192  |  **Tool/purpose:** Debian/Ubuntu package manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 13. sudo apt-get install -y pacemaker corosync pcs resource-agents fence-agents
+**Exact command:**
 
 ```bash
 sudo apt-get install -y pacemaker corosync pcs resource-agents fence-agents
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Update package indexes or install/upgrade/remove packages depending on subcommand.
 
-**Complete command form:** `apt-get` is the executable; the remaining words are targets/subcommands and options. Options: `-y` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo apt-get install -y pacemaker. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-y` — Automatically accept package manager prompts; risky on production.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Update package indexes or install/upgrade/remove packages depending on subcommand. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Debian/Ubuntu package manager` vendor manual or installed `--help`; [online vendor reference](https://manpages.debian.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 14. `sudo systemctl enable --now pcsd`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 193  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 14. sudo systemctl enable --now pcsd
+**Exact command:**
 
 ```bash
 sudo systemctl enable --now pcsd
 ```
 
-**What it does:** Inspect/change systemd unit state.
+**What it does:** Inspect or modify systemd-managed services and units.
 
-**Complete command form:** `systemctl` is the executable; the remaining words are targets/subcommands and options. Options: `--now` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo systemctl enable --now pcsd. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--now` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Inspect or modify systemd-managed services and units. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 15. `sudo pcs status`
 
-**Expected output:** Inspect/change systemd unit state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 194  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 15. sudo pcs status
+**Exact command:**
 
 ```bash
 sudo pcs status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 16. `sudo pcs quorum status`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 211  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 16. sudo pcs quorum status
+**Exact command:**
 
 ```bash
 sudo pcs quorum status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs quorum status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 17. `sudo pcs stonith config`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 212  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 17. sudo pcs stonith config
+**Exact command:**
 
 ```bash
 sudo pcs stonith config
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs stonith config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 18. `sudo pcs status --full`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 213  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 18. sudo pcs status --full
+**Exact command:**
 
 ```bash
 sudo pcs status --full
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. Options: `--full` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs status --full. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--full` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 19. `sudo pcs constraint config`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 214  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 19. sudo pcs constraint config
+**Exact command:**
 
 ```bash
 sudo pcs constraint config
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs constraint config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 20. `sudo journalctl -u corosync -n 150 --no-pager`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 215  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 20. sudo journalctl -u corosync -n 150 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u corosync -n 150 --no-pager
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Filter systemd logs for the specified unit.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-u` (confirm tool-specific help); `-n` (confirm tool-specific help); `--no-pager` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo journalctl -u corosync -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 21. `sudo journalctl -u pacemaker -n 150 --no-pager`
 
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 216  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 21. sudo journalctl -u pacemaker -n 150 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u pacemaker -n 150 --no-pager
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Filter systemd logs for the specified unit.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-u` (confirm tool-specific help); `-n` (confirm tool-specific help); `--no-pager` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo journalctl -u pacemaker -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 22. `sudo pcs cluster status`
 
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 235  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 22. sudo pcs cluster status
+**Exact command:**
 
 ```bash
 sudo pcs cluster status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs cluster status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 23. `sudo pcs node status`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 236  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 23. sudo pcs node status
+**Exact command:**
 
 ```bash
 sudo pcs node status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs node status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 24. `sudo pcs resource status`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 237  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 24. sudo pcs resource status
+**Exact command:**
 
 ```bash
 sudo pcs resource status
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs resource status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 25. `sudo pcs resource config`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 238  |  **Tool/purpose:** Pacemaker HA manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 25. sudo pcs resource config
+**Exact command:**
 
 ```bash
 sudo pcs resource config
 ```
 
-**What it does:** Inspect Pacemaker cluster, resource, quorum or fencing state.
+**What it does:** Inspect or alter cluster membership, quorum, fencing and resource placement.
 
-**Complete command form:** `pcs` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo pcs resource config. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or alter cluster membership, quorum, fencing and resource placement. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Pacemaker HA manager` vendor manual or installed `--help`; [online vendor reference](https://clusterlabs.org/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 26. `sudo crm_verify -L -V`
 
-**Expected output:** Inspect Pacemaker cluster, resource, quorum or fencing state. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 239  |  **Tool/purpose:** crm_verify operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 26. sudo crm_verify -L -V
+**Exact command:**
 
 ```bash
 sudo crm_verify -L -V
 ```
 
-**What it does:** Check Pacemaker cluster configuration constraints and integrity.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `crm_verify` is the executable; the remaining words are targets/subcommands and options. Options: `-L` (confirm tool-specific help); `-V` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
-
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
-
-**Expected output:** Check Pacemaker cluster configuration constraints and integrity. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
-
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
+**Syntax:** sudo crm_verify -L -V. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-L` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-V` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `crm_verify operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
