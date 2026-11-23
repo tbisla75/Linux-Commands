@@ -1,436 +1,496 @@
-# Offline explanations: 09-FORGOTTEN-PASSWORD-RECOVERY.md
+# Offline command / configuration reference: `09-FORGOTTEN-PASSWORD-RECOVERY.md`
 
-Source: [09-FORGOTTEN-PASSWORD-RECOVERY.md](../09-FORGOTTEN-PASSWORD-RECOVERY.md). This is a **local, internet-independent** explanation of every terminal example in the runbook, with syntax, prerequisites and operational risk. Validate against actual installed releases.
+Generated from repository source by `tools/build_offline_reference.py`. **27 items**. This copy works offline. No commands were executed.
 
-## 1. whoami
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`09-FORGOTTEN-PASSWORD-RECOVERY.md`](../09-FORGOTTEN-PASSWORD-RECOVERY.md)
+
+### 1. `whoami`
+
+**Source line:** 24  |  **Tool/purpose:** whoami operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 whoami
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `whoami` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** whoami. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `whoami operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 2. `id YOUR_USER`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 25  |  **Tool/purpose:** id operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 2. id YOUR_USER
+**Exact command:**
 
 ```bash
 id YOUR_USER
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `id` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** id YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `id operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 3. `getent passwd YOUR_USER`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 26  |  **Tool/purpose:** NSS lookup  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 3. getent passwd YOUR_USER
+**Exact command:**
 
 ```bash
 getent passwd YOUR_USER
 ```
 
-**What it does:** Resolve NSS hosts or user/group database.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Complete command form:** `getent` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** getent passwd YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 4. `sudo passwd -S YOUR_USER`
 
-**Expected output:** Resolve NSS hosts or user/group database. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 27  |  **Tool/purpose:** passwd operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 4. sudo passwd -S YOUR_USER
+**Exact command:**
 
 ```bash
 sudo passwd -S YOUR_USER
 ```
 
-**What it does:** Interactive local account password change requiring authorized privilege.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `passwd` is the executable; the remaining words are targets/subcommands and options. Options: `-S` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo passwd -S YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-S` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `passwd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 5. `getent group sudo`
 
-**Expected output:** Interactive local account password change requiring authorized privilege. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 28  |  **Tool/purpose:** NSS lookup  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 5. getent group sudo
+**Exact command:**
 
 ```bash
 getent group sudo
 ```
 
-**What it does:** Resolve NSS hosts or user/group database.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Complete command form:** `getent` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** getent group sudo. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 6. `getent group wheel`
 
-**Expected output:** Resolve NSS hosts or user/group database. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 29  |  **Tool/purpose:** NSS lookup  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 6. getent group wheel
+**Exact command:**
 
 ```bash
 getent group wheel
 ```
 
-**What it does:** Resolve NSS hosts or user/group database.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Complete command form:** `getent` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** getent group wheel. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 7. `sudo passwd YOUR_USER`
 
-**Expected output:** Resolve NSS hosts or user/group database. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 51  |  **Tool/purpose:** passwd operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 7. sudo passwd YOUR_USER
+**Exact command:**
 
 ```bash
 sudo passwd YOUR_USER
 ```
 
-**What it does:** Interactive local account password change requiring authorized privilege.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `passwd` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo passwd YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `passwd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 8. `sudo chage -l YOUR_USER`
 
-**Expected output:** Interactive local account password change requiring authorized privilege. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 52  |  **Tool/purpose:** chage operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 8. sudo chage -l YOUR_USER
+**Exact command:**
 
 ```bash
 sudo chage -l YOUR_USER
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `chage` is the executable; the remaining words are targets/subcommands and options. Options: `-l` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo chage -l YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-l` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `chage operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 9. `mount \| grep ' on / '`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 78  |  **Tool/purpose:** mount operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 9. mount | grep ' on / '
+**Exact command:**
 
 ```bash
 mount | grep ' on / '
 ```
 
-**What it does:** Show or alter filesystem mounts.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mount` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** mount | grep  on / . The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mount operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 10. `mount -o remount,rw /`
 
-**Expected output:** Show or alter filesystem mounts. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 79  |  **Tool/purpose:** mount operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 10. mount -o remount,rw /
+**Exact command:**
 
 ```bash
 mount -o remount,rw /
 ```
 
-**What it does:** Show or alter filesystem mounts.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mount` is the executable; the remaining words are targets/subcommands and options. Options: `-o` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mount -o remount,rw /. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mount operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 11. `getent passwd YOUR_USER`
 
-**Expected output:** Show or alter filesystem mounts. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 80  |  **Tool/purpose:** NSS lookup  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 11. getent passwd YOUR_USER
+**Exact command:**
 
 ```bash
 getent passwd YOUR_USER
 ```
 
-**What it does:** Resolve NSS hosts or user/group database.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Complete command form:** `getent` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** getent passwd YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 12. `passwd YOUR_USER`
 
-**Expected output:** Resolve NSS hosts or user/group database. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 81  |  **Tool/purpose:** passwd operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 12. passwd YOUR_USER
+**Exact command:**
 
 ```bash
 passwd YOUR_USER
 ```
 
-**What it does:** Interactive local account password change requiring authorized privilege.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `passwd` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** passwd YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `passwd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 13. `sync`
 
-**Expected output:** Interactive local account password change requiring authorized privilege. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 82  |  **Tool/purpose:** sync operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 13. sync
+**Exact command:**
 
 ```bash
 sync
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `sync` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** sync. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sync operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 14. `reboot`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 83  |  **Tool/purpose:** reboot operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 14. reboot
+**Exact command:**
 
 ```bash
 reboot
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `reboot` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** reboot. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `reboot operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 15. `mount \| grep sysroot`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 115  |  **Tool/purpose:** mount operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 15. mount | grep sysroot
+**Exact command:**
 
 ```bash
 mount | grep sysroot
 ```
 
-**What it does:** Show or alter filesystem mounts.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mount` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** mount | grep sysroot. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mount operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 16. `mount -o remount,rw /sysroot`
 
-**Expected output:** Show or alter filesystem mounts. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 116  |  **Tool/purpose:** mount operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 16. mount -o remount,rw /sysroot
+**Exact command:**
 
 ```bash
 mount -o remount,rw /sysroot
 ```
 
-**What it does:** Show or alter filesystem mounts.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `mount` is the executable; the remaining words are targets/subcommands and options. Options: `-o` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** mount -o remount,rw /sysroot. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-o` — Output format for kubectl/oc, filename for some tools; command-specific.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `mount operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 17. `chroot /sysroot`
 
-**Expected output:** Show or alter filesystem mounts. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 117  |  **Tool/purpose:** chroot operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 17. chroot /sysroot
+**Exact command:**
 
 ```bash
 chroot /sysroot
 ```
 
-**What it does:** Change process root to installed filesystem during approved rescue.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `chroot` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** chroot /sysroot. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `chroot operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 18. `passwd YOUR_USER`
 
-**Expected output:** Change process root to installed filesystem during approved rescue. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 118  |  **Tool/purpose:** passwd operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 18. passwd YOUR_USER
+**Exact command:**
 
 ```bash
 passwd YOUR_USER
 ```
 
-**What it does:** Interactive local account password change requiring authorized privilege.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `passwd` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** passwd YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `passwd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 19. `touch /.autorelabel`
 
-**Expected output:** Interactive local account password change requiring authorized privilege. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 119  |  **Tool/purpose:** touch operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 19. touch /.autorelabel
+**Exact command:**
 
 ```bash
 touch /.autorelabel
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `touch` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** touch /.autorelabel. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `touch operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 20. `exit`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 120  |  **Tool/purpose:** exit operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 20. exit
-
-```bash
-exit
-```
-
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
-
-**Complete command form:** `exit` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
-
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
-
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
-
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 21. exit
+**Exact command:**
 
 ```bash
 exit
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `exit` is the executable; the remaining words are targets/subcommands and options. No named options.. Shell pipes forward output, while redirects can write local files.
+**Syntax:** exit. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `exit operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 21. `exit`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 121  |  **Tool/purpose:** exit operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
+**Exact command:**
 
-## 22. sudo passwd -S YOUR_USER
+```bash
+exit
+```
+
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
+
+**Syntax:** exit. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `exit operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
+
+### 22. `sudo passwd -S YOUR_USER`
+
+**Source line:** 146  |  **Tool/purpose:** passwd operation  |  **Impact:** **CHANGE / POSSIBLY MUTATING**
+
+**Exact command:**
 
 ```bash
 sudo passwd -S YOUR_USER
 ```
 
-**What it does:** Interactive local account password change requiring authorized privilege.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `passwd` is the executable; the remaining words are targets/subcommands and options. Options: `-S` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo passwd -S YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-S` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Check subcommand and flags; requires change review and appropriate access. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `passwd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 23. `sudo chage -l YOUR_USER`
 
-**Expected output:** Interactive local account password change requiring authorized privilege. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 147  |  **Tool/purpose:** chage operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟠 Action may modify host, credentials or allocate batch resources; require approval and rollback.
-
-## 23. sudo chage -l YOUR_USER
+**Exact command:**
 
 ```bash
 sudo chage -l YOUR_USER
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `chage` is the executable; the remaining words are targets/subcommands and options. Options: `-l` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo chage -l YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-l` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `chage operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 24. `sudo faillock --user YOUR_USER`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 148  |  **Tool/purpose:** faillock operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 24. sudo faillock --user YOUR_USER
+**Exact command:**
 
 ```bash
 sudo faillock --user YOUR_USER
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `faillock` is the executable; the remaining words are targets/subcommands and options. Options: `--user` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo faillock --user YOUR_USER. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--user` — Select or specify user identity; semantics depend on tool.
+**Substitute before running:** `YOUR_USER`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `faillock operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** YOUR_USER. Replace only with authorized target values.
+### 25. `sudo sshd -t`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 149  |  **Tool/purpose:** sshd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 25. sudo sshd -t
+**Exact command:**
 
 ```bash
 sudo sshd -t
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `sshd` is the executable; the remaining words are targets/subcommands and options. Options: `-t` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo sshd -t. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-t` — Type/timeout/terminal mode depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sshd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 26. `sudo sshd -T \| grep -Ei 'passwordauthentication\|permitrootlogin\|pubkeyauthentication\|usepam'`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 150  |  **Tool/purpose:** sshd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 26. sudo sshd -T | grep -Ei 'passwordauthentication|permitrootlogin|pubkeyauthentication|usepam'
+**Exact command:**
 
 ```bash
 sudo sshd -T | grep -Ei 'passwordauthentication|permitrootlogin|pubkeyauthentication|usepam'
 ```
 
-**What it does:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Complete command form:** `sshd` is the executable; the remaining words are targets/subcommands and options. Options: `-T` (confirm tool-specific help); `-Ei` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
+**Syntax:** sudo sshd -T | grep. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-T` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-Ei` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sshd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
+### 27. `sudo journalctl -b --since '30 minutes ago' \| grep -Ei 'sshd\|pam\|authentication\|faillock' \| tail -80`
 
-**Expected output:** Use the specified executable to query or manage its named resources. Confirm the installed manual for exact semantics. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
+**Source line:** 151  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
-
-## 27. sudo journalctl -b --since '30 minutes ago' | grep -Ei 'sshd|pam|authentication|faillock' | tail -80
+**Exact command:**
 
 ```bash
 sudo journalctl -b --since '30 minutes ago' | grep -Ei 'sshd|pam|authentication|faillock' | tail -80
 ```
 
-**What it does:** Read service/kernel journal logs filtered by arguments.
+**What it does:** Query system and service journal messages with boot, unit, time and priority filters.
 
-**Complete command form:** `journalctl` is the executable; the remaining words are targets/subcommands and options. Options: `-b` (confirm tool-specific help); `--since` (confirm tool-specific help); `-Ei` (confirm tool-specific help); `-80` (confirm tool-specific help). Shell pipes forward output, while redirects can write local files.
-
-**Environment and variables:** No placeholders detected. Replace only with authorized target values.
-
-**Expected output:** Read service/kernel journal logs filtered by arguments. Inspect status code, message timestamp, and compare to healthy node/pool behavior.
-
-**Production caution:** 🟢 Diagnostic in typical use; still protect sensitive account/host/output information.
+**Syntax:** sudo journalctl -b --since 30 minutes ago. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-b` — Filter journal to specified boot; otherwise command-specific.
+**Option:** `--since` — Select entries newer than a given time or duration.
+**Option:** `-Ei` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-80` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Query system and service journal messages with boot, unit, time and priority filters. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 

@@ -1,388 +1,452 @@
-# Offline Linux command explanations: 02-SECURITY-HARDENING.md
+# Offline command / configuration reference: `02-SECURITY-HARDENING.md`
 
-Fully local searchable catalog sourced from [02-SECURITY-HARDENING.md](../02-SECURITY-HARDENING.md). Every command includes syntax, purpose, options, output and safety. Verify ambiguous flags with installed `--help` / manual pages.
+Generated from repository source by `tools/build_offline_reference.py`. **24 items**. This copy works offline. No commands were executed.
 
-## 1. sudo ss -tulpen
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`02-SECURITY-HARDENING.md`](../02-SECURITY-HARDENING.md)
+
+### 1. `sudo ss -tulpen`
+
+**Source line:** 10  |  **Tool/purpose:** Socket inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 sudo ss -tulpen
 ```
 
-**Purpose:** Displays listening/established network sockets.
+**What it does:** Show listening and active network sockets, protocols and owning processes when permitted.
 
-**Full syntax:** executable `ss`; following words identify subcommands and target, followed by options `-tulpen` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo ss -tulpen. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-tulpen` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Show listening and active network sockets, protocols and owning processes when permitted. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Socket inspection` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man8/ss.8.html).
 
-**Inputs:** No explicit placeholders.
+### 2. `sudo systemctl --type=service --state=running`
 
-**Expected outcome:** Displays listening/established network sockets. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 11  |  **Tool/purpose:** systemd unit manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 2. sudo systemctl --type=service --state=running
+**Exact command:**
 
 ```bash
 sudo systemctl --type=service --state=running
 ```
 
-**Purpose:** Reads or changes state of systemd-managed services.
+**What it does:** Inspect or modify systemd-managed services and units.
 
-**Full syntax:** executable `systemctl`; following words identify subcommands and target, followed by options `--type=service` (verify exact option in this CLI), `--state=running` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo systemctl --type=service --state=running. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--type=service` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `--state=running` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect or modify systemd-managed services and units. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd unit manager` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html).
 
-**Inputs:** No explicit placeholders.
+### 3. `sudo find /etc/ssh -maxdepth 2 -type f -ls`
 
-**Expected outcome:** Reads or changes state of systemd-managed services. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 12  |  **Tool/purpose:** find operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 3. sudo find /etc/ssh -maxdepth 2 -type f -ls
+**Exact command:**
 
 ```bash
 sudo find /etc/ssh -maxdepth 2 -type f -ls
 ```
 
-**Purpose:** Searches files by provided path and predicates.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `find`; following words identify subcommands and target, followed by options `-maxdepth` (verify exact option in this CLI), `-type` (verify exact option in this CLI), `-ls` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo find /etc/ssh -maxdepth 2. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-maxdepth` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-type` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-ls` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `find operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 4. `sudo sshd -T \| grep -E '^(permitrootlogin\|passwordauthentication\|pubkeyauthentication)'`
 
-**Expected outcome:** Searches files by provided path and predicates. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 13  |  **Tool/purpose:** sshd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 4. sudo sshd -T | grep -E '^(permitrootlogin|passwordauthentication|pubkeyauthentication)'
+**Exact command:**
 
 ```bash
 sudo sshd -T | grep -E '^(permitrootlogin|passwordauthentication|pubkeyauthentication)'
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `sshd`; following words identify subcommands and target, followed by options `-T` (verify exact option in this CLI), `-E` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo sshd -T | grep. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-T` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-E` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `|` pipes stdout into the next process; check pipeline exit codes (pipefail where appropriate).
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information. **Credential caution:** command may reference credentials or identity; do not upload raw outputs.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `sshd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 5. `sudo auditctl -s`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 14  |  **Tool/purpose:** auditctl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 5. sudo auditctl -s
+**Exact command:**
 
 ```bash
 sudo auditctl -s
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `auditctl`; following words identify subcommands and target, followed by options `-s` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo auditctl -s. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-s` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `auditctl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 6. `getenforce`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 15  |  **Tool/purpose:** getenforce operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 6. getenforce
+**Exact command:**
 
 ```bash
 getenforce
 ```
 
-**Purpose:** Reads SELinux enforcing mode.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `getenforce`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** getenforce. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `getenforce operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 7. `sudo aa-status`
 
-**Expected outcome:** Reads SELinux enforcing mode. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 16  |  **Tool/purpose:** aa-status operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 7. sudo aa-status
+**Exact command:**
 
 ```bash
 sudo aa-status
 ```
 
-**Purpose:** Lists AppArmor profiles and enforcement mode.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `aa-status`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo aa-status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `aa-status operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 8. `sudo nft list ruleset`
 
-**Expected outcome:** Lists AppArmor profiles and enforcement mode. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 37  |  **Tool/purpose:** nft operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 8. sudo nft list ruleset
+**Exact command:**
 
 ```bash
 sudo nft list ruleset
 ```
 
-**Purpose:** Inspects or changes nftables firewall rules.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `nft`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo nft list ruleset. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `nft operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 9. `sudo firewall-cmd --state`
 
-**Expected outcome:** Inspects or changes nftables firewall rules. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 38  |  **Tool/purpose:** firewall-cmd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 9. sudo firewall-cmd --state
+**Exact command:**
 
 ```bash
 sudo firewall-cmd --state
 ```
 
-**Purpose:** Firewalld status and policy query or change.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `firewall-cmd`; following words identify subcommands and target, followed by options `--state` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo firewall-cmd --state. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--state` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `firewall-cmd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 10. `sudo firewall-cmd --list-all`
 
-**Expected outcome:** Firewalld status and policy query or change. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 39  |  **Tool/purpose:** firewall-cmd operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 10. sudo firewall-cmd --list-all
+**Exact command:**
 
 ```bash
 sudo firewall-cmd --list-all
 ```
 
-**Purpose:** Firewalld status and policy query or change.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `firewall-cmd`; following words identify subcommands and target, followed by options `--list-all` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo firewall-cmd --list-all. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--list-all` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `firewall-cmd operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 11. `sudo ufw status verbose`
 
-**Expected outcome:** Firewalld status and policy query or change. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 40  |  **Tool/purpose:** ufw operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 11. sudo ufw status verbose
+**Exact command:**
 
 ```bash
 sudo ufw status verbose
 ```
 
-**Purpose:** Ubuntu uncomplicated firewall inspection/configuration.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `ufw`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo ufw status verbose. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `ufw operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 12. `getent group sudo`
 
-**Expected outcome:** Ubuntu uncomplicated firewall inspection/configuration. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 41  |  **Tool/purpose:** NSS lookup  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 12. getent group sudo
+**Exact command:**
 
 ```bash
 getent group sudo
 ```
 
-**Purpose:** Resolves NSS users, groups and hostnames.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Full syntax:** executable `getent`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** getent group sudo. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Inputs:** No explicit placeholders.
+### 13. `getent group wheel`
 
-**Expected outcome:** Resolves NSS users, groups and hostnames. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 42  |  **Tool/purpose:** NSS lookup  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 13. getent group wheel
+**Exact command:**
 
 ```bash
 getent group wheel
 ```
 
-**Purpose:** Resolves NSS users, groups and hostnames.
+**What it does:** Resolve users, groups and hosts through the operating system's NSS configuration.
 
-**Full syntax:** executable `getent`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** getent group wheel. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Resolve users, groups and hosts through the operating system's NSS configuration. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `NSS lookup` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/man1/getent.1.html).
 
-**Inputs:** No explicit placeholders.
+### 14. `sudo last -n 20`
 
-**Expected outcome:** Resolves NSS users, groups and hostnames. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 43  |  **Tool/purpose:** last operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 14. sudo last -n 20
+**Exact command:**
 
 ```bash
 sudo last -n 20
 ```
 
-**Purpose:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `last`; following words identify subcommands and target, followed by options `-n` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo last -n 20. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `last operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 15. `sudo journalctl -u sshd --since yesterday`
 
-**Expected outcome:** Runs the named command with supplied target arguments; consult its exact local manual for detailed semantics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 44  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 15. sudo journalctl -u sshd --since yesterday
+**Exact command:**
 
 ```bash
 sudo journalctl -u sshd --since yesterday
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `--since` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo journalctl -u sshd --since. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `--since` — Select entries newer than a given time or duration.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Inputs:** No explicit placeholders.
+### 16. `sudo apt list --upgradable`
 
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 66  |  **Tool/purpose:** apt operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 16. sudo apt list --upgradable
+**Exact command:**
 
 ```bash
 sudo apt list --upgradable
 ```
 
-**Purpose:** Ubuntu/Debian package administration.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `apt`; following words identify subcommands and target, followed by options `--upgradable` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo apt list --upgradable. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--upgradable` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `apt operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 17. `sudo dnf updateinfo list security`
 
-**Expected outcome:** Ubuntu/Debian package administration. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 67  |  **Tool/purpose:** RHEL-family package manager  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 17. sudo dnf updateinfo list security
+**Exact command:**
 
 ```bash
 sudo dnf updateinfo list security
 ```
 
-**Purpose:** RHEL-family package manager.
+**What it does:** Install/update/query packages using configured RPM repositories.
 
-**Full syntax:** executable `dnf`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo dnf updateinfo list security. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Install/update/query packages using configured RPM repositories. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `RHEL-family package manager` vendor manual or installed `--help`; [online vendor reference](https://dnf.readthedocs.io/).
 
-**Inputs:** No explicit placeholders.
+### 18. `sudo openssl version -a`
 
-**Expected outcome:** RHEL-family package manager. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 68  |  **Tool/purpose:** OpenSSL TLS diagnostics  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 18. sudo openssl version -a
+**Exact command:**
 
 ```bash
 sudo openssl version -a
 ```
 
-**Purpose:** SSL/TLS handshake and certificate diagnostics.
+**What it does:** Inspect TLS handshakes/certificates; network requests reveal target connections.
 
-**Full syntax:** executable `openssl`; following words identify subcommands and target, followed by options `-a` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo openssl version -a. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-a` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect TLS handshakes/certificates; network requests reveal target connections. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `OpenSSL TLS diagnostics` vendor manual or installed `--help`; [online vendor reference](https://docs.openssl.org/).
 
-**Inputs:** No explicit placeholders.
+### 19. `sudo find / -xdev -perm -4000 -type f 2>/dev/null`
 
-**Expected outcome:** SSL/TLS handshake and certificate diagnostics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 69  |  **Tool/purpose:** find operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 19. sudo find / -xdev -perm -4000 -type f 2>/dev/null
+**Exact command:**
 
 ```bash
 sudo find / -xdev -perm -4000 -type f 2>/dev/null
 ```
 
-**Purpose:** Searches files by provided path and predicates.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `find`; following words identify subcommands and target, followed by options `-xdev` (verify exact option in this CLI), `-perm` (verify exact option in this CLI), `-4000` (verify exact option in this CLI), `-type` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo find / -xdev -perm. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-xdev` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-perm` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-4000` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-type` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `find operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 20. `sudo find /etc -xdev -type f -perm /022 -ls 2>/dev/null`
 
-**Expected outcome:** Searches files by provided path and predicates. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 70  |  **Tool/purpose:** find operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 20. sudo find /etc -xdev -type f -perm /022 -ls 2>/dev/null
+**Exact command:**
 
 ```bash
 sudo find /etc -xdev -type f -perm /022 -ls 2>/dev/null
 ```
 
-**Purpose:** Searches files by provided path and predicates.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `find`; following words identify subcommands and target, followed by options `-xdev` (verify exact option in this CLI), `-type` (verify exact option in this CLI), `-perm` (verify exact option in this CLI), `-ls` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo find /etc -xdev -type. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-xdev` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-type` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-perm` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-ls` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Shell syntax:** `>` redirects/truncates output; confirm destination and permissions.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `find operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 21. `timedatectl status`
 
-**Expected outcome:** Searches files by provided path and predicates. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 89  |  **Tool/purpose:** timedatectl operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 21. timedatectl status
+**Exact command:**
 
 ```bash
 timedatectl status
 ```
 
-**Purpose:** Time synchronization, timezone and clock status.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Full syntax:** executable `timedatectl`; following words identify subcommands and target, followed by options (none). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** timedatectl status. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `timedatectl operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Inputs:** No explicit placeholders.
+### 22. `openssl s_client -connect YOUR_HOST:443 -servername YOUR_HOST </dev/null`
 
-**Expected outcome:** Time synchronization, timezone and clock status. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 90  |  **Tool/purpose:** OpenSSL TLS diagnostics  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 22. openssl s_client -connect YOUR_HOST:443 -servername YOUR_HOST </dev/null
+**Exact command:**
 
 ```bash
 openssl s_client -connect YOUR_HOST:443 -servername YOUR_HOST </dev/null
 ```
 
-**Purpose:** SSL/TLS handshake and certificate diagnostics.
+**What it does:** Inspect TLS handshakes/certificates; network requests reveal target connections.
 
-**Full syntax:** executable `openssl`; following words identify subcommands and target, followed by options `-connect` (verify exact option in this CLI), `-servername` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** openssl s_client -connect YOUR_HOST:443 -servername. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-connect` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-servername` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Substitute before running:** `YOUR_HOST`. Never assume an example target is the current cluster.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect TLS handshakes/certificates; network requests reveal target connections. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `OpenSSL TLS diagnostics` vendor manual or installed `--help`; [online vendor reference](https://docs.openssl.org/).
 
-**Inputs:** YOUR_HOST, YOUR_HOST.
+### 23. `sudo journalctl -u chronyd -n 50 --no-pager`
 
-**Expected outcome:** SSL/TLS handshake and certificate diagnostics. Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 91  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 23. sudo journalctl -u chronyd -n 50 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u chronyd -n 50 --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `-n` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
+**Syntax:** sudo journalctl -u chronyd -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
-**Inputs:** No explicit placeholders.
+### 24. `sudo journalctl -u systemd-timesyncd -n 50 --no-pager`
 
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
+**Source line:** 92  |  **Tool/purpose:** systemd journal inspection  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
-
-## 24. sudo journalctl -u systemd-timesyncd -n 50 --no-pager
+**Exact command:**
 
 ```bash
 sudo journalctl -u systemd-timesyncd -n 50 --no-pager
 ```
 
-**Purpose:** Reads systemd journal messages (unit, boot, time and priority filters).
+**What it does:** Filter systemd logs for the specified unit.
 
-**Full syntax:** executable `journalctl`; following words identify subcommands and target, followed by options `-u` (verify exact option in this CLI), `-n` (verify exact option in this CLI), `--no-pager` (verify exact option in this CLI). Shell `|` sends standard output to next process; `>` can write/truncate local files.
-
-**Inputs:** No explicit placeholders.
-
-**Expected outcome:** Reads systemd journal messages (unit, boot, time and priority filters). Check exit code, output, service and timestamp correlation against a healthy baseline.
-
-**Safety:** 🟢 Primarily read-only, but may display sensitive host/account information.
+**Syntax:** sudo journalctl -u systemd-timesyncd -n. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-u` — Filter journal by systemd unit; in other tools may mean user.
+**Option:** `-n` — Namespace for kubectl/oc, number of lines for journalctl/tail, or another command-specific argument.
+**Option:** `--no-pager` — Print output directly rather than opening an interactive pager.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Filter systemd logs for the specified unit. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `systemd journal inspection` vendor manual or installed `--help`; [online vendor reference](https://www.freedesktop.org/software/systemd/man/latest/journalctl.html).
 
